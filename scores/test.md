@@ -10,6 +10,7 @@
 | T-4 | BEACH | 5 | 2 | -3 | Harald |
 | T-5 | PIANO | X | 4 | -3 | Harald |
 | T-6 | JAZZY | 4 | 6 | +2 | Arne |
+| T-7 | DAGEN | 3 | 2 | −1 | Harald |
 
 ---
 
@@ -17,11 +18,11 @@
 
 | | Arne | Harald |
 |---|:---:|:---:|
-| **Wins** | 3 | 2 |
+| **Wins** | 3 | 3 |
 | **Ties** | — | 1 |
-| **Avg attempts** | 4.17 | 4.00 |
-| **Total attempts** | 25 | 24 |
-| **Season spread** | −1 (Harald ahead on attempts) | |
+| **Avg attempts** | 4.00 | 3.71 |
+| **Total attempts** | 28 | 26 |
+| **Season spread** | −2 (Harald ahead on attempts) | |
 
 > Spread per game = Harald − Arne attempts. Season spread = sum of all games.  
 > Positive = Arne ahead, negative = Harald ahead. X (failed) counts as 7.
@@ -36,6 +37,6 @@
 | T-4: BEACH (5 vs 2) | −3 | 0 |
 | T-5: PIANO (X=7 vs 4) | −3 | −3 |
 | T-6: JAZZY (4 vs 6) | +2 | −1 |
+| T-7: DAGEN (3 vs 2) | −1 | −2 |
 
-Arne wins the season (3–2), but Harald edges it on total attempts (24 vs 25).  
-Spread tiebreaker would go to Harald — good to know before a real tie happens.
+Wins tied 3–3. Harald takes the season on spread (−2): fewer total attempts (26 vs 28).
