@@ -34,10 +34,10 @@ Filename: `scores/YYYY-MM.md`
 ```markdown
 # Month YYYY
 
-| Date | Arne | Harald | Spread | Winner |
-|------|:----:|:------:|:------:|--------|
-| Jun 1 | 3 | 5 | +2 | Arne |
-| Jun 2 | 4 | 4 | 0 | Tie |
+| Date | Word | Arne | Harald | Spread | Winner |
+|------|------|:----:|:------:|:------:|--------|
+| Jun 1 | CRANE | 3 | 5 | +2 | Arne |
+| Jun 2 | LIGHT | 4 | 4 | 0 | Tie |
 
 ---
 
