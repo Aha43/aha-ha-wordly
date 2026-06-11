@@ -25,7 +25,8 @@ When Arne says something like *"June 3 — Arne 4, Harald 3"*:
 2. Append a row to the games table (see format below).
 3. Recompute the stats block at the bottom of that file.
 4. Update the matching row in `README.md` (wins, ties, spread, champion).
-5. Commit with a short message, e.g. `Add Jun 3 — Arne 4 Harald 3`.
+5. Update the `## Latest` section in `README.md` (see format below).
+6. Commit with a short message, e.g. `Add Jun 3 — Arne 4 Harald 3`.
 
 ## Monthly file format
 
@@ -84,3 +85,20 @@ When the first score of a new month is logged:
 ```
 
 Champion column: `ongoing` during the month, then winner's name (or `Tie`) when the month ends.
+
+## README Latest section format
+
+Always replace the two lines under `## Latest` with fresh values after each game:
+
+```markdown
+## Latest
+
+**Mon DD · WORD** — [winner] N, [loser] N → [winner] wins  (or "Tie" for equal attempts)
+
+**Month YYYY:** Arne W – Harald W (T ties) · Spread S · [leader] ahead on [wins/spread]
+```
+
+Leader line logic:
+- If one player has more wins: "[name] ahead on wins"
+- If wins are equal and spread ≠ 0: "[name] ahead on spread"
+- If wins and spread are both equal: "All square"

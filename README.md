@@ -5,6 +5,12 @@ X (failed) counts as 7. Spread = Harald − Arne attempts; positive means Arne u
 
 [Play](https://gjett.net/)
 
+## Latest
+
+**Jun 11 · STYKK** — Harald 4, Arne 6 → Harald wins
+
+**June 2026:** Arne 4 – Harald 4 (3 ties) · Spread +1 · Arne ahead on spread
+
 ## Seasons
 
 | Season | Arne wins | Harald wins | Ties | Season spread | Champion |
