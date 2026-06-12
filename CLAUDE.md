@@ -23,10 +23,11 @@ When Arne says something like *"June 3 — Arne 4, Harald 3"*:
 
 1. Open the current month's file in `scores/`.
 2. Append a row to the games table (see format below).
-3. Recompute the stats block at the bottom of that file.
-4. Update the matching row in `README.md` (wins, ties, spread, champion).
-5. Update the `## Latest` section in `README.md` (see format below).
-6. Commit with a short message, e.g. `Add Jun 3 — Arne 4 Harald 3`.
+3. Update the leader line under the title (see format below).
+4. Recompute the stats block at the bottom of that file.
+5. Update the matching row in `README.md` (wins, ties, spread, champion).
+6. Update the `## Latest` section in `README.md` (see format below).
+7. Commit with a short message, e.g. `Add Jun 3 — Arne 4 Harald 3`.
 
 ## Monthly file format
 
@@ -34,6 +35,8 @@ Filename: `scores/YYYY-MM.md`
 
 ```markdown
 # Month YYYY
+
+**Arne leads on wins** — 1–0 · 1 tie · spread +2
 
 | Date | Word | Arne | Harald | Spread | Winner |
 |------|------|:----:|:------:|:------:|--------|
@@ -55,6 +58,23 @@ Filename: `scores/YYYY-MM.md`
 > Spread per game = Harald − Arne attempts. Season spread = sum of all games.  
 > Positive = Arne ahead, negative = Harald ahead. X (failed) counts as 7.
 ```
+
+## Season leader line format
+
+The first line under the season title shows who is leading at a glance. Refresh
+it after every game:
+
+```markdown
+**Arne leads on wins** — 5–4 · 3 ties · spread +2
+```
+
+- Format: `**[leader] leads on [wins/spread]** — A–H · T ties · spread S`
+  (where A–H is Arne wins–Harald wins, T is tie count, S is season spread)
+- Leader logic (same as README Latest):
+  - More wins → `**[name] leads on wins**`
+  - Wins equal and spread ≠ 0 → `**[name] leads on spread**`
+  - Wins and spread both equal → `**All square**` (drop the "leads on …" wording)
+- Use `1 tie` (singular) when there is exactly one tie.
 
 ## Spread definition
 

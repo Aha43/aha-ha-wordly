@@ -1,5 +1,7 @@
 # Test Season
 
+**Harald leads on spread** — 3–3 · 1 tie · spread −2
+
 > This is a fake season used to verify scoring, stats, and spread calculations.
 
 | Date | Word | Arne | Harald | Spread | Winner |
