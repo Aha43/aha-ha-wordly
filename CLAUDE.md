@@ -13,9 +13,15 @@ Arne and Harald play the public daily Wordle game. After each game they text eac
 
 ```
 README.md              ← TOC, one row per season, latest first
+data.json              ← source data for the web page (one entry per game)
+index.html             ← GitHub Pages scoreboard (renders data.json, no build step)
 scores/
   YYYY-MM.md           ← one file per season
 ```
+
+The public page lives at https://aha43.github.io/aha-ha-wordly/ and renders
+entirely from `data.json` (stats are computed in the browser). `index.html` is
+static — never hand-edit scores into it.
 
 ## Logging a score
 
@@ -27,7 +33,14 @@ When Arne says something like *"June 3 — Arne 4, Harald 3"*:
 4. Recompute the stats block at the bottom of that file.
 5. Update the matching row in `README.md` (wins, ties, spread, champion).
 6. Update the `## Latest` section in `README.md` (see format below).
-7. Commit with a short message, e.g. `Add Jun 3 — Arne 4 Harald 3`.
+7. Append the game to the current season's `games` array in `data.json`
+   (`{ "date": "Jun 3", "word": "CRANE", "a": 4, "h": 3 }`; use `"X"` for a
+   failed solve). The page computes all stats from this, so no stat edits here.
+8. Commit with a short message, e.g. `Add Jun 3 — Arne 4 Harald 3`.
+
+When starting a new month, also add a new season object at the end of the
+`seasons` array in `data.json` (`{ "month": "YYYY-MM", "title": "Month YYYY",
+"games": [] }`).
 
 ## Monthly file format
 

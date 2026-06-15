@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Arne vs Harald — Wordle</title>
+<style>
+  :root {
+    --bg: #0f1115;
+    --card: #1a1d24;
+    --card2: #21252e;
+    --line: #2b303b;
+    --txt: #e7e9ee;
+    --dim: #9aa1ad;
+    --arne: #6aaa64;   /* wordle green */
+    --harald: #c9b458; /* wordle yellow */
+    --tie: #6b7280;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--bg);
+    color: var(--txt);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.45;
+    padding: 20px 16px 60px;
+  }
+  .wrap { max-width: 560px; margin: 0 auto; }
+  .topbar { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 18px; }
+  .topbar h1 { font-size: 1.15rem; margin: 0; letter-spacing: .3px; }
+  .topbar a { color: var(--dim); text-decoration: none; font-size: .85rem; }
+  .topbar a:hover { color: var(--txt); }
+
+  .season { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px; margin-bottom: 22px; }
+  .season-title { font-size: .8rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--dim); margin: 0 0 12px; }
+
+  .score { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 6px 0 4px; }
+  .score .name { font-size: .72rem; letter-spacing: 1px; text-transform: uppercase; color: var(--dim); text-align: center; }
+  .score .num { font-size: 2.8rem; font-weight: 800; line-height: 1; }
+  .score .col { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .score .dash { font-size: 1.8rem; color: var(--dim); font-weight: 300; padding: 0 2px; }
+  .arne .num { color: var(--arne); }
+  .harald .num { color: var(--harald); }
+
+  .subline { text-align: center; color: var(--dim); font-size: .9rem; margin: 8px 0 4px; }
+  .lead { text-align: center; font-size: .95rem; margin: 2px 0 14px; font-weight: 600; }
+
+  .games { border-top: 1px solid var(--line); }
+  .game { display: grid; grid-template-columns: 64px 1fr auto auto; align-items: center; gap: 10px;
+          padding: 9px 2px; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+  .game:last-child { border-bottom: none; }
+  .game .date { color: var(--dim); font-size: .8rem; }
+  .game .word { font-weight: 600; letter-spacing: 1px; }
+  .game .att { font-size: .92rem; color: var(--dim); }
+  .game .att b { color: var(--txt); }
+  .badge { font-size: .68rem; font-weight: 700; padding: 2px 8px; border-radius: 999px; letter-spacing: .5px; }
+  .b-arne { background: rgba(106,170,100,.18); color: var(--arne); }
+  .b-harald { background: rgba(201,180,88,.2); color: var(--harald); }
+  .b-tie { background: rgba(107,114,128,.25); color: #b9bfca; }
+
+  .footer { text-align: center; color: var(--dim); font-size: .78rem; margin-top: 10px; }
+  .loading, .err { text-align: center; color: var(--dim); padding: 40px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <h1>🟩 Arne vs Harald</h1>
+    <a id="playlink" href="https://gjett.net/" target="_blank" rel="noopener">Play ↗</a>
+  </div>
+  <div id="root"><div class="loading">Loading…</div></div>
+  <div class="footer">Daily Wordle head-to-head · X = didn't solve (counts as 7)</div>
+</div>
+
+<script>
+const val = x => x === "X" ? 7 : x;
+const esc = s => String(s).replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+
+function statsFor(games) {
+  let aw = 0, hw = 0, ties = 0, aTot = 0, hTot = 0, spread = 0;
+  for (const g of games) {
+    const a = val(g.a), h = val(g.h);
+    aTot += a; hTot += h;
+    spread += h - a;             // positive => Arne ahead
+    if (a < h) aw++; else if (h < a) hw++; else ties++;
+  }
+  const n = games.length || 1;
+  return { aw, hw, ties, aTot, hTot, spread, aAvg: aTot / n, hAvg: hTot / n, n: games.length };
+}
+
+function leadLine(s) {
+  if (s.aw > s.hw) return { who: "Arne", txt: "Arne leads on wins" };
+  if (s.hw > s.aw) return { who: "Harald", txt: "Harald leads on wins" };
+  if (s.spread > 0) return { who: "Arne", txt: "Arne leads on spread" };
+  if (s.spread < 0) return { who: "Harald", txt: "Harald leads on spread" };
+  return { who: null, txt: "All square" };
+}
+
+function winnerBadge(g) {
+  const a = val(g.a), h = val(g.h);
+  if (a < h) return '<span class="badge b-arne">ARNE</span>';
+  if (h < a) return '<span class="badge b-harald">HARALD</span>';
+  return '<span class="badge b-tie">TIE</span>';
+}
+
+function seasonHTML(season) {
+  const s = statsFor(season.games);
+  const lead = leadLine(s);
+  const tieTxt = s.ties === 1 ? "1 tie" : s.ties + " ties";
+  const sp = (s.spread > 0 ? "+" : "") + s.spread;
+  const rows = [...season.games].reverse().map(g => `
+    <div class="game">
+      <span class="date">${esc(g.date)}</span>
+      <span class="word">${esc(g.word)}</span>
+      <span class="att"><b>${esc(g.a)}</b>–<b>${esc(g.h)}</b></span>
+      ${winnerBadge(g)}
+    </div>`).join("");
+  return `
+    <section class="season">
+      <p class="season-title">${esc(season.title)}</p>
+      <div class="score">
+        <div class="col arne"><span class="name">Arne</span><span class="num">${s.aw}</span></div>
+        <span class="dash">–</span>
+        <div class="col harald"><span class="name">Harald</span><span class="num">${s.hw}</span></div>
+      </div>
+      <div class="subline">${tieTxt} · spread ${sp} · avg ${s.aAvg.toFixed(1)} / ${s.hAvg.toFixed(1)}</div>
+      <div class="lead">${esc(lead.txt)}</div>
+      <div class="games">${rows}</div>
+    </section>`;
+}
+
+fetch("data.json", { cache: "no-store" })
+  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then(data => {
+    if (data.play_url) document.getElementById("playlink").href = data.play_url;
+    const seasons = [...data.seasons].reverse(); // newest first
+    document.getElementById("root").innerHTML = seasons.map(seasonHTML).join("");
+  })
+  .catch(e => {
+    document.getElementById("root").innerHTML =
+      '<div class="err">Couldn\'t load scores (' + esc(e.message) + ').</div>';
+  });
+</script>
+</body>
+</html>
