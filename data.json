@@ -20,7 +20,8 @@
         { "date": "Jun 12", "word": "ENDTE", "a": 3, "h": 4 },
         { "date": "Jun 13", "word": "TVILE", "a": 4, "h": 3 },
         { "date": "Jun 14", "word": "RØKET", "a": 5, "h": "X" },
-        { "date": "Jun 15", "word": "RENSE", "a": 3, "h": 5 }
+        { "date": "Jun 15", "word": "RENSE", "a": 3, "h": 5 },
+        { "date": "Jun 16", "word": "UKLART", "a": 4, "h": 4 }
       ]
     }
   ]
