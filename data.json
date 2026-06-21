@@ -25,7 +25,8 @@
         { "date": "Jun 17", "word": "STUPE", "a": 4, "h": 5 },
         { "date": "Jun 18", "word": "GREIT", "a": 3, "h": 3 },
         { "date": "Jun 19", "word": "SKUTT", "a": 4, "h": 4 },
-        { "date": "Jun 20", "word": "HODET", "a": 4, "h": 3 }
+        { "date": "Jun 20", "word": "HODET", "a": 4, "h": 3 },
+        { "date": "Jun 21", "word": "HERRE", "a": "X", "h": 5 }
       ]
     }
   ]
