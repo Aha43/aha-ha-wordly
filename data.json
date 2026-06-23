@@ -27,7 +27,8 @@
         { "date": "Jun 19", "word": "SKUTT", "a": 4, "h": 4 },
         { "date": "Jun 20", "word": "HODET", "a": 4, "h": 3 },
         { "date": "Jun 21", "word": "HERRE", "a": "X", "h": 5 },
-        { "date": "Jun 22", "word": "MODUS", "a": "X", "h": 3 }
+        { "date": "Jun 22", "word": "MODUS", "a": "X", "h": 3 },
+        { "date": "Jun 23", "word": "LUNGE", "a": 5, "h": 2 }
       ]
     }
   ]
