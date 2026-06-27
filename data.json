@@ -31,7 +31,8 @@
         { "date": "Jun 23", "word": "LUNGE", "a": 5, "h": 2 },
         { "date": "Jun 24", "word": "STYRT", "a": "X", "h": 5 },
         { "date": "Jun 25", "word": "SAVNE", "a": 5, "h": 2 },
-        { "date": "Jun 26", "word": "DYBDE", "a": 5, "h": 5 }
+        { "date": "Jun 26", "word": "DYBDE", "a": 5, "h": 5 },
+        { "date": "Jun 27", "word": "VEVER", "a": 5, "h": "X" }
       ]
     }
   ]
