@@ -5,7 +5,7 @@
     {
       "month": "2026-06",
       "title": "June 2026",
-      "shoutout": "Arne ends the drought! First win since Jun 17 — and he does it in style, cracking the slippery VEVER in 5 while Harald comes up empty. A rare and glorious upset. 🎉",
+      "shoutout": "Deadlock on KJØNN — both lock it in 3, nothing between them. Arne's flicker of hope survives another day; Harald's two-win cushion holds. 🤝",
       "games": [
         { "date": "Jun 1", "word": "RUMPE", "a": "X", "h": 6 },
         { "date": "Jun 2", "word": "VAKRE", "a": 5, "h": 6 },
@@ -33,7 +33,8 @@
         { "date": "Jun 24", "word": "STYRT", "a": "X", "h": 5 },
         { "date": "Jun 25", "word": "SAVNE", "a": 5, "h": 2 },
         { "date": "Jun 26", "word": "DYBDE", "a": 5, "h": 5 },
-        { "date": "Jun 27", "word": "VEVER", "a": 5, "h": "X" }
+        { "date": "Jun 27", "word": "VEVER", "a": 5, "h": "X" },
+        { "date": "Jun 28", "word": "KJØNN", "a": 3, "h": 3 }
       ]
     }
   ]
