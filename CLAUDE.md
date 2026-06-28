@@ -37,11 +37,15 @@ When Arne says something like *"June 3 — Arne 4, Harald 3"*:
 7. Append the game to the current season's `games` array in `data.json`
    (`{ "date": "Jun 3", "word": "CRANE", "a": 4, "h": 3 }`; use `"X"` for a
    failed solve). The page computes all stats from this, so no stat edits here.
+7a. Update the season's `shoutout` field in `data.json` to match the fresh
+   shoutout line from step 3a (plain text, no `> 📣 **Shoutout:**` prefix — the
+   page adds that). This is what makes the shoutout show on the web page;
+   without it the markdown shoutout never reaches the site.
 8. Commit with a short message, e.g. `Add Jun 3 — Arne 4 Harald 3`.
 
 When starting a new month, also add a new season object at the end of the
 `seasons` array in `data.json` (`{ "month": "YYYY-MM", "title": "Month YYYY",
-"games": [] }`).
+"shoutout": "", "games": [] }`).
 
 ## Monthly file format
 

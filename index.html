@@ -43,7 +43,11 @@
   .harald .num { color: var(--harald); }
 
   .subline { text-align: center; color: var(--dim); font-size: .9rem; margin: 8px 0 4px; }
-  .lead { text-align: center; font-size: .95rem; margin: 2px 0 14px; font-weight: 600; }
+  .lead { text-align: center; font-size: .95rem; margin: 2px 0 12px; font-weight: 600; }
+
+  .shout { background: var(--card2); border: 1px solid var(--line); border-radius: 12px;
+           padding: 10px 14px; margin: 0 0 14px; font-size: .9rem; color: var(--txt); }
+  .shout b { color: var(--arne); letter-spacing: .3px; }
 
   .games { border-top: 1px solid var(--line); }
   .game { display: grid; grid-template-columns: 64px 1fr auto auto; align-items: center; gap: 10px;
@@ -125,6 +129,7 @@ function seasonHTML(season) {
       </div>
       <div class="subline">${tieTxt} · spread ${sp} · avg ${s.aAvg.toFixed(1)} / ${s.hAvg.toFixed(1)}</div>
       <div class="lead">${esc(lead.txt)}</div>
+      ${season.shoutout ? `<div class="shout"><b>📣 Shoutout:</b> ${esc(season.shoutout)}</div>` : ""}
       <div class="games">${rows}</div>
     </section>`;
 }
