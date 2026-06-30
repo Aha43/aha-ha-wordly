@@ -5,7 +5,7 @@
     {
       "month": "2026-06",
       "title": "June 2026",
-      "shoutout": "STEKT keeps the kitchen even — both sizzle to 5, the third tie in four days. Ties pile up to 9 while Harald's two-win cushion stays warm. 🍳",
+      "shoutout": "FAVØR splits the finale 6–6 and seals Harald's June crown — 11 wins to 9, with 10 ties along the way. Curtain falls in the month's favour of Harald. 👑",
       "games": [
         { "date": "Jun 1", "word": "RUMPE", "a": "X", "h": 6 },
         { "date": "Jun 2", "word": "VAKRE", "a": 5, "h": 6 },
@@ -35,7 +35,8 @@
         { "date": "Jun 26", "word": "DYBDE", "a": 5, "h": 5 },
         { "date": "Jun 27", "word": "VEVER", "a": 5, "h": "X" },
         { "date": "Jun 28", "word": "KJØNN", "a": 3, "h": 3 },
-        { "date": "Jun 29", "word": "STEKT", "a": 5, "h": 5 }
+        { "date": "Jun 29", "word": "STEKT", "a": 5, "h": 5 },
+        { "date": "Jun 30", "word": "FAVØR", "a": 6, "h": 6 }
       ]
     }
   ]
