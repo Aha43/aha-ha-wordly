@@ -38,6 +38,14 @@
         { "date": "Jun 29", "word": "STEKT", "a": 5, "h": 5 },
         { "date": "Jun 30", "word": "FAVØR", "a": 6, "h": 6 }
       ]
+    },
+    {
+      "month": "2026-07",
+      "title": "July 2026",
+      "shoutout": "Harald opens July with a crisp HÅRET in 4, brushing past Arne's 5. 💇",
+      "games": [
+        { "date": "Jul 1", "word": "HÅRET", "a": 5, "h": 4 }
+      ]
     }
   ]
 }
