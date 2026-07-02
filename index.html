@@ -134,7 +134,7 @@ function seasonHTML(season) {
     </section>`;
 }
 
-fetch("data.json", { cache: "no-store" })
+fetch("data.json?v=" + Date.now(), { cache: "no-store" })
   .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
   .then(data => {
     if (data.play_url) document.getElementById("playlink").href = data.play_url;
