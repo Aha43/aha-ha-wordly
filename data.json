@@ -42,9 +42,10 @@
     {
       "month": "2026-07",
       "title": "July 2026",
-      "shoutout": "Harald opens July with a crisp HÅRET in 4, brushing past Arne's 5. 💇",
+      "shoutout": "Dead heat at the KILDE — both draw water in 4 and split the spoils. 🤝",
       "games": [
-        { "date": "Jul 1", "word": "HÅRET", "a": 5, "h": 4 }
+        { "date": "Jul 1", "word": "HÅRET", "a": 5, "h": 4 },
+        { "date": "Jul 2", "word": "KILDE", "a": 4, "h": 4 }
       ]
     }
   ]
