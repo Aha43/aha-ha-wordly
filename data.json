@@ -42,12 +42,13 @@
     {
       "month": "2026-07",
       "title": "July 2026",
-      "shoutout": "Fortune favours the brave — Arne cracks MODIG in 3 for back-to-back wins and grabs the July lead! 💪",
+      "shoutout": "Horror strikes again — EPLER leaves Arne empty-handed while Harald munches through the apples in 4 to snatch the lead. 🍎😱",
       "games": [
         { "date": "Jul 1", "word": "HÅRET", "a": 5, "h": 4 },
         { "date": "Jul 2", "word": "KILDE", "a": 4, "h": 4 },
         { "date": "Jul 3", "word": "VERDT", "a": 3, "h": 4 },
-        { "date": "Jul 4", "word": "MODIG", "a": 3, "h": 4 }
+        { "date": "Jul 4", "word": "MODIG", "a": 3, "h": 4 },
+        { "date": "Jul 5", "word": "EPLER", "a": "X", "h": 4 }
       ]
     }
   ]
