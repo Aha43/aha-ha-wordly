@@ -7,14 +7,14 @@ X (failed) counts as 7. Spread = Harald − Arne attempts; positive means Arne u
 
 ## Latest
 
-**Jul 4 · MODIG** — Arne 3, Harald 4 → Arne wins
+**Jul 6 · ORDET** — Arne 3, Harald 3 → Tie
 
-**July 2026:** Arne 2 – Harald 1 (1 tie) · Spread +1 · Arne ahead on wins
+**July 2026:** Arne 2 – Harald 1 (2 ties) · Spread +1 · Arne ahead on wins
 
 ## Seasons
 
 | Season | Arne wins | Harald wins | Ties | Season spread | Champion |
 |--------|:---------:|:-----------:|:----:|:-------------:|----------|
-| [July 2026](scores/2026-07.md) | 2 | 1 | 1 | +1 (Arne) | ongoing |
+| [July 2026](scores/2026-07.md) | 2 | 1 | 2 | +1 (Arne) | ongoing |
 | [June 2026](scores/2026-06.md) | 9 | 11 | 10 | −7 (Harald) | Harald |
 | [Test Season](scores/test.md) | 3 | 3 | 1 | −2 (Harald) | Harald (spread) |
