@@ -42,12 +42,13 @@
     {
       "month": "2026-07",
       "title": "July 2026",
-      "shoutout": "ORDET is the word — both crack it in 3 for a lightning-quick stalemate. 🤝",
+      "shoutout": "Both get the last word — ORDET falls in 3 apiece, and Harald clings to his slender spread lead. 🤝",
       "games": [
         { "date": "Jul 1", "word": "HÅRET", "a": 5, "h": 4 },
         { "date": "Jul 2", "word": "KILDE", "a": 4, "h": 4 },
         { "date": "Jul 3", "word": "VERDT", "a": 3, "h": 4 },
         { "date": "Jul 4", "word": "MODIG", "a": 3, "h": 4 },
+        { "date": "Jul 5", "word": "EPLER", "a": "X", "h": 4 },
         { "date": "Jul 6", "word": "ORDET", "a": 3, "h": 3 }
       ]
     }
