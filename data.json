@@ -42,7 +42,7 @@
     {
       "month": "2026-07",
       "title": "July 2026",
-      "shoutout": "Small word, big flex — Harald snipes LITEN in just 2, sinking Arne's perfectly decent 3. 🎯",
+      "shoutout": "Harald won't SITTE still — his 4 edges Arne's 5 for back-to-back wins and a two-game cushion. 🪑",
       "games": [
         { "date": "Jul 1", "word": "HÅRET", "a": 5, "h": 4 },
         { "date": "Jul 2", "word": "KILDE", "a": 4, "h": 4 },
@@ -50,7 +50,8 @@
         { "date": "Jul 4", "word": "MODIG", "a": 3, "h": 4 },
         { "date": "Jul 5", "word": "EPLER", "a": "X", "h": 4 },
         { "date": "Jul 6", "word": "ORDET", "a": 3, "h": 3 },
-        { "date": "Jul 7", "word": "LITEN", "a": 3, "h": 2 }
+        { "date": "Jul 7", "word": "LITEN", "a": 3, "h": 2 },
+        { "date": "Jul 8", "word": "SITTE", "a": 5, "h": 4 }
       ]
     }
   ]
