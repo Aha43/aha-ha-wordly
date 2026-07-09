@@ -7,7 +7,7 @@ X (failed) counts as 7. Spread = Harald − Arne attempts; positive means Arne u
 
 ## Latest
 
-**Jul 9 · RAPPA** — Arne 3, Harald 3 → Tie
+**Jul 9 · KALLE** — Arne 3, Harald 3 → Tie
 
 **July 2026:** Arne 2 – Harald 4 (3 ties) · Spread −4 · Harald ahead on wins
 
