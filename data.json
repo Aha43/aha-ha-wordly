@@ -42,7 +42,7 @@
     {
       "month": "2026-07",
       "title": "July 2026",
-      "shoutout": "Both call it on KALLE in 3 — a dead heat, and Harald's win streak stalls without slipping. 🤝",
+      "shoutout": "The verdict on VEDTA is 4–5 to Harald — he's decided this month, five wins to two. 🔨",
       "games": [
         { "date": "Jul 1", "word": "HÅRET", "a": 5, "h": 4 },
         { "date": "Jul 2", "word": "KILDE", "a": 4, "h": 4 },
@@ -52,7 +52,8 @@
         { "date": "Jul 6", "word": "ORDET", "a": 3, "h": 3 },
         { "date": "Jul 7", "word": "LITEN", "a": 3, "h": 2 },
         { "date": "Jul 8", "word": "SITTE", "a": 5, "h": 4 },
-        { "date": "Jul 9", "word": "KALLE", "a": 3, "h": 3 }
+        { "date": "Jul 9", "word": "KALLE", "a": 3, "h": 3 },
+        { "date": "Jul 10", "word": "VEDTA", "a": 5, "h": 4 }
       ]
     }
   ]
