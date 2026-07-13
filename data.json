@@ -42,7 +42,7 @@
     {
       "month": "2026-07",
       "title": "July 2026",
-      "shoutout": "Arne's NISSE comes early — a tidy 4 while Harald scrapes home in 6, and the +2 trims Harald's lead to two. 🎅",
+      "shoutout": "No SLØSE from Arne — a clean 4 to Harald's 6 again, back-to-back +2s that shave the lead to a single win. 💸",
       "games": [
         { "date": "Jul 1", "word": "HÅRET", "a": 5, "h": 4 },
         { "date": "Jul 2", "word": "KILDE", "a": 4, "h": 4 },
@@ -55,7 +55,8 @@
         { "date": "Jul 9", "word": "KALLE", "a": 3, "h": 3 },
         { "date": "Jul 10", "word": "VEDTA", "a": 5, "h": 4 },
         { "date": "Jul 11", "word": "FRYSE", "a": 4, "h": 4 },
-        { "date": "Jul 12", "word": "NISSE", "a": 4, "h": 6 }
+        { "date": "Jul 12", "word": "NISSE", "a": 4, "h": 6 },
+        { "date": "Jul 13", "word": "SLØSE", "a": 4, "h": 6 }
       ]
     }
   ]
