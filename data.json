@@ -42,7 +42,7 @@
     {
       "month": "2026-07",
       "title": "July 2026",
-      "shoutout": "HJALP arrives for Harald — a slick 3 stops Arne's charge in its tracks and pushes the lead back to two. 🆘",
+      "shoutout": "Harald forbids a comeback — FORBY in 4 to Arne's 5, a third straight win to stretch the lead to three. 🚫",
       "games": [
         { "date": "Jul 1", "word": "HÅRET", "a": 5, "h": 4 },
         { "date": "Jul 2", "word": "KILDE", "a": 4, "h": 4 },
@@ -57,7 +57,8 @@
         { "date": "Jul 11", "word": "FRYSE", "a": 4, "h": 4 },
         { "date": "Jul 12", "word": "NISSE", "a": 4, "h": 6 },
         { "date": "Jul 13", "word": "SLØSE", "a": 4, "h": 6 },
-        { "date": "Jul 14", "word": "HJALP", "a": 4, "h": 3 }
+        { "date": "Jul 14", "word": "HJALP", "a": 4, "h": 3 },
+        { "date": "Jul 15", "word": "FORBY", "a": 5, "h": 4 }
       ]
     }
   ]
