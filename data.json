@@ -42,7 +42,7 @@
     {
       "month": "2026-07",
       "title": "July 2026",
-      "shoutout": "Arne opens a new EPOKE in 3 to Harald's 5 — a +2 that yanks the spread back to −1. ⏳",
+      "shoutout": "Harald sneaks LUSKE home in 3 to Arne's 4 — a quiet win that nudges the lead back to three. 🕵️",
       "games": [
         { "date": "Jul 1", "word": "HÅRET", "a": 5, "h": 4 },
         { "date": "Jul 2", "word": "KILDE", "a": 4, "h": 4 },
@@ -60,7 +60,8 @@
         { "date": "Jul 14", "word": "HJALP", "a": 4, "h": 3 },
         { "date": "Jul 15", "word": "FORBY", "a": 5, "h": 4 },
         { "date": "Jul 16", "word": "KOKOS", "a": 4, "h": 4 },
-        { "date": "Jul 17", "word": "EPOKE", "a": 3, "h": 5 }
+        { "date": "Jul 17", "word": "EPOKE", "a": 3, "h": 5 },
+        { "date": "Jul 18", "word": "LUSKE", "a": 4, "h": 3 }
       ]
     }
   ]
