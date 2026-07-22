@@ -42,7 +42,7 @@
     {
       "month": "2026-07",
       "title": "July 2026",
-      "shoutout": "Both settle into HUSET in 3 — a neat tie that snaps Harald's two-win streak but leaves the four-win lead standing. 🏠",
+      "shoutout": "The lost Jul 20 resurfaces — Harald had it in 3 to Arne's 4 (word forgotten), quietly nudging the lead to five and the spread to −4. 🔍",
       "games": [
         { "date": "Jul 1", "word": "HÅRET", "a": 5, "h": 4 },
         { "date": "Jul 2", "word": "KILDE", "a": 4, "h": 4 },
@@ -63,6 +63,7 @@
         { "date": "Jul 17", "word": "EPOKE", "a": 3, "h": 5 },
         { "date": "Jul 18", "word": "LUSKE", "a": 4, "h": 3 },
         { "date": "Jul 19", "word": "KABAL", "a": 5, "h": 4 },
+        { "date": "Jul 20", "word": "?", "a": 4, "h": 3 },
         { "date": "Jul 21", "word": "HUSET", "a": 3, "h": 3 }
       ]
     }
