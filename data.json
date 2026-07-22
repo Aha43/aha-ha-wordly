@@ -42,7 +42,7 @@
     {
       "month": "2026-07",
       "title": "July 2026",
-      "shoutout": "The lost Jul 20 resurfaces — Harald had it in 3 to Arne's 4 (word forgotten), quietly nudging the lead to five and the spread to −4. 🔍",
+      "shoutout": "Arne pops a PILLE in 4 while Harald burns all 6 — a +2 tonic that trims the lead and halves the spread to −2. 💊",
       "games": [
         { "date": "Jul 1", "word": "HÅRET", "a": 5, "h": 4 },
         { "date": "Jul 2", "word": "KILDE", "a": 4, "h": 4 },
@@ -64,7 +64,8 @@
         { "date": "Jul 18", "word": "LUSKE", "a": 4, "h": 3 },
         { "date": "Jul 19", "word": "KABAL", "a": 5, "h": 4 },
         { "date": "Jul 20", "word": "?", "a": 4, "h": 3 },
-        { "date": "Jul 21", "word": "HUSET", "a": 3, "h": 3 }
+        { "date": "Jul 21", "word": "HUSET", "a": 3, "h": 3 },
+        { "date": "Jul 22", "word": "PILLE", "a": 4, "h": 6 }
       ]
     }
   ]
