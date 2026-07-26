@@ -42,7 +42,7 @@
     {
       "month": "2026-07",
       "title": "July 2026",
-      "shoutout": "Arne hits the right note — SYNGE in 4 to Harald's 5, cutting the wins gap to one and tipping the spread into the plus for the first time. 🎶",
+      "shoutout": "Both LYTTE closely for a 4–4 draw — no ground gained either way, and Arne keeps his slender +1 edge. 👂",
       "games": [
         { "date": "Jul 1", "word": "HÅRET", "a": 5, "h": 4 },
         { "date": "Jul 2", "word": "KILDE", "a": 4, "h": 4 },
@@ -69,7 +69,8 @@
         { "date": "Jul 23", "word": "HVILE", "a": 5, "h": 6 },
         { "date": "Jul 24", "word": "TÅLTE", "a": 4, "h": 5 },
         { "date": "Jul 25", "word": "BRANN", "a": 3, "h": 3 },
-        { "date": "Jul 26", "word": "SYNGE", "a": 4, "h": 5 }
+        { "date": "Jul 26", "word": "SYNGE", "a": 4, "h": 5 },
+        { "date": "Jul 27", "word": "LYTTE", "a": 4, "h": 4 }
       ]
     }
   ]
