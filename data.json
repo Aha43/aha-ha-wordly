@@ -42,7 +42,7 @@
     {
       "month": "2026-07",
       "title": "July 2026",
-      "shoutout": "Arne FIKSE's it in 3 to Harald's 5 — the wins draw level at 10 apiece and the +2 hands Arne the outright lead for the first time. 🔧",
+      "shoutout": "Well HVILT indeed — a rested Arne strolls in with 4 while Harald slogs to 6, and the wins lead is finally Arne's, 11–10. 😴",
       "games": [
         { "date": "Jul 1", "word": "HÅRET", "a": 5, "h": 4 },
         { "date": "Jul 2", "word": "KILDE", "a": 4, "h": 4 },
@@ -71,7 +71,8 @@
         { "date": "Jul 25", "word": "BRANN", "a": 3, "h": 3 },
         { "date": "Jul 26", "word": "SYNGE", "a": 4, "h": 5 },
         { "date": "Jul 27", "word": "LYTTE", "a": 4, "h": 4 },
-        { "date": "Jul 28", "word": "FIKSE", "a": 3, "h": 5 }
+        { "date": "Jul 28", "word": "FIKSE", "a": 3, "h": 5 },
+        { "date": "Jul 29", "word": "HVILT", "a": 4, "h": 6 }
       ]
     }
   ]
