@@ -48,6 +48,9 @@
   .shout { background: var(--card2); border: 1px solid var(--line); border-radius: 12px;
            padding: 10px 14px; margin: 0 0 14px; font-size: .9rem; color: var(--txt); }
   .shout b { color: var(--arne); letter-spacing: .3px; }
+  .shout .back { float: right; margin-left: 10px; color: var(--dim); cursor: pointer;
+                 font-size: .78rem; font-style: normal; user-select: none; }
+  .shout .back:hover { color: var(--txt); }
 
   .resume { background: var(--card2); border: 1px solid var(--line); border-left: 3px solid var(--tie);
             border-radius: 12px; padding: 10px 14px; margin: 0 0 14px; font-size: .9rem;
@@ -62,6 +65,10 @@
   .game { display: grid; grid-template-columns: 64px 1fr auto auto; align-items: center; gap: 10px;
           padding: 9px 2px; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
   .game:last-child { border-bottom: none; }
+  .game.has-shout { cursor: pointer; }
+  .game.has-shout:hover { background: rgba(255,255,255,.035); }
+  .game.sel { background: rgba(255,255,255,.055); }
+  .game .mark { font-size: .6rem; opacity: .4; margin-left: 6px; }
   .game .date { color: var(--dim); font-size: .8rem; }
   .game .word { font-weight: 600; letter-spacing: 1px; }
   .game .att { font-size: .92rem; color: var(--dim); }
@@ -116,18 +123,32 @@ function winnerBadge(g) {
   return '<span class="badge b-tie">TIE</span>';
 }
 
-function seasonHTML(season) {
+const latestShoutIdx = games => {
+  for (let i = games.length - 1; i >= 0; i--) if (games[i].shout) return i;
+  return -1;
+};
+
+function shoutHTML(season, gi) {
+  const g = season.games[gi];
+  const isLatest = gi === latestShoutIdx(season.games);
+  const back = isLatest ? "" : `<span class="back" data-back="1">latest ↩</span>`;
+  return `${back}<b>📣 ${esc(g.date)} · ${esc(g.word)}:</b> ${esc(g.shout)}`;
+}
+
+function seasonHTML(season, si) {
   const s = statsFor(season.games);
   const lead = leadLine(s);
   const tieTxt = s.ties === 1 ? "1 tie" : s.ties + " ties";
   const sp = (s.spread > 0 ? "+" : "") + s.spread;
-  const rows = [...season.games].reverse().map(g => `
-    <div class="game">
+  const shoutIdx = latestShoutIdx(season.games);
+  const rows = season.games.map((g, gi) => `
+    <div class="game${g.shout ? " has-shout" : ""}${gi === shoutIdx ? " sel" : ""}"
+         data-si="${si}" data-gi="${gi}">
       <span class="date">${esc(g.date)}</span>
-      <span class="word">${esc(g.word)}</span>
+      <span class="word">${esc(g.word)}${g.shout ? '<span class="mark">📣</span>' : ""}</span>
       <span class="att"><b>${esc(g.a)}</b>–<b>${esc(g.h)}</b></span>
       ${winnerBadge(g)}
-    </div>`).join("");
+    </div>`).reverse().join("");
   const champ = s.aw > s.hw ? "r-arne" : s.hw > s.aw ? "r-harald"
               : s.spread > 0 ? "r-arne" : s.spread < 0 ? "r-harald" : "";
   const resume = season.resume
@@ -143,17 +164,41 @@ function seasonHTML(season) {
       </div>
       <div class="subline">${tieTxt} · spread ${sp} · avg ${s.aAvg.toFixed(1)} / ${s.hAvg.toFixed(1)}</div>
       <div class="lead">${esc(lead.txt)}</div>
-      ${season.shoutout ? `<div class="shout"><b>📣 Shoutout:</b> ${esc(season.shoutout)}</div>` : ""}
+      ${shoutIdx >= 0 ? `<div class="shout" data-shoutbox="${si}">${shoutHTML(season, shoutIdx)}</div>` : ""}
       <div class="games">${rows}</div>
     </section>`;
 }
+
+function selectShout(si, gi) {
+  const season = SEASONS[si];
+  const box = document.querySelector(`[data-shoutbox="${si}"]`);
+  if (!box || !season.games[gi] || !season.games[gi].shout) return;
+  box.innerHTML = shoutHTML(season, gi);
+  document.querySelectorAll(`.game.sel[data-si="${si}"]`).forEach(el => el.classList.remove("sel"));
+  const row = document.querySelector(`.game[data-si="${si}"][data-gi="${gi}"]`);
+  if (row) row.classList.add("sel");
+}
+
+let SEASONS = [];
+document.getElementById("root").addEventListener("click", e => {
+  const back = e.target.closest("[data-back]");
+  if (back) {
+    const si = +back.closest("[data-shoutbox]").dataset.shoutbox;
+    selectShout(si, latestShoutIdx(SEASONS[si].games));
+    return;
+  }
+  const row = e.target.closest(".game.has-shout");
+  if (row) selectShout(+row.dataset.si, +row.dataset.gi);
+});
 
 fetch("data.json?v=" + Date.now(), { cache: "no-store" })
   .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
   .then(data => {
     if (data.play_url) document.getElementById("playlink").href = data.play_url;
-    const seasons = [...data.seasons].reverse(); // newest first
-    document.getElementById("root").innerHTML = seasons.map(seasonHTML).join("");
+    SEASONS = data.seasons;
+    const order = SEASONS.map((s, i) => i).reverse(); // newest first
+    document.getElementById("root").innerHTML =
+      order.map(i => seasonHTML(SEASONS[i], i)).join("");
   })
   .catch(e => {
     document.getElementById("root").innerHTML =

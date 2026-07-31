@@ -35,18 +35,19 @@ When Arne says something like *"June 3 — Arne 4, Harald 3"*:
 4. Recompute the stats block at the bottom of that file.
 5. Update the matching row in `README.md` (wins, ties, spread, champion).
 6. Update the `## Latest` section in `README.md` (see format below).
-7. Append the game to the current season's `games` array in `data.json`
-   (`{ "date": "Jun 3", "word": "CRANE", "a": 4, "h": 3 }`; use `"X"` for a
-   failed solve). The page computes all stats from this, so no stat edits here.
-7a. Update the season's `shoutout` field in `data.json` to match the fresh
-   shoutout line from step 3a (plain text, no `> 📣 **Shoutout:**` prefix — the
-   page adds that). This is what makes the shoutout show on the web page;
-   without it the markdown shoutout never reaches the site.
+7. Append the game to the current season's `games` array in `data.json`,
+   including the fresh shoutout from step 3a as a `shout` field
+   (`{ "date": "Jun 3", "word": "CRANE", "a": 4, "h": 3, "shout": "…" }`;
+   use `"X"` for a failed solve; plain text shout, no `> 📣 **Shoutout:**`
+   prefix — the page adds that). The page computes all stats from this, so no
+   stat edits here. Shoutouts are per-game and permanent: the page shows the
+   latest by default and lets visitors click any row to read that game's
+   shoutout, so never rewrite older games' `shout` values.
 8. Commit with a short message, e.g. `Add Jun 3 — Arne 4 Harald 3`.
 
 When starting a new month, also add a new season object at the end of the
 `seasons` array in `data.json` (`{ "month": "YYYY-MM", "title": "Month YYYY",
-"resume": "", "shoutout": "", "games": [] }`).
+"resume": "", "games": [] }`).
 
 ## Monthly file format
 
