@@ -45,7 +45,7 @@ When Arne says something like *"June 3 — Arne 4, Harald 3"*:
 
 When starting a new month, also add a new season object at the end of the
 `seasons` array in `data.json` (`{ "month": "YYYY-MM", "title": "Month YYYY",
-"shoutout": "", "games": [] }`).
+"resume": "", "shoutout": "", "games": [] }`).
 
 ## Monthly file format
 
@@ -110,6 +110,20 @@ about the latest result, not a running log.
 - Riff on whatever's interesting that day: streaks (made or broken), blowouts,
   nail-biters, failed solves, comebacks, milestones, or a pun on the word.
 - Name the word and reference the result so it stands on its own.
+
+## Season resume (when a season ends)
+
+When a month's final game is logged (or a finished season lacks one), write a
+`resume` field on that season's object in `data.json`. The page shows it in a
+box **above the season title**, accented in the champion's color. Unlike the
+shoutout it is permanent — written once when the season ends, never rewritten.
+
+- 2–3 sentences telling the story of the month: who won and how, the shape of
+  the race (wire-to-wire, comeback, nail-biter), and one or two standout stats
+  (ties, spread, averages, failed solves, streaks).
+- Tone: written for anybody's eyes — warm and readable, lighter on inside
+  jokes and emoji than the shoutout. Plain text, no markdown.
+- The final shoutout stays as-is alongside it; the two coexist.
 
 ## Spread definition
 

@@ -49,6 +49,15 @@
            padding: 10px 14px; margin: 0 0 14px; font-size: .9rem; color: var(--txt); }
   .shout b { color: var(--arne); letter-spacing: .3px; }
 
+  .resume { background: var(--card2); border: 1px solid var(--line); border-left: 3px solid var(--tie);
+            border-radius: 12px; padding: 10px 14px; margin: 0 0 14px; font-size: .9rem;
+            color: var(--txt); font-style: italic; }
+  .resume b { font-style: normal; letter-spacing: .3px; }
+  .resume.r-arne { border-left-color: var(--arne); }
+  .resume.r-arne b { color: var(--arne); }
+  .resume.r-harald { border-left-color: var(--harald); }
+  .resume.r-harald b { color: var(--harald); }
+
   .games { border-top: 1px solid var(--line); }
   .game { display: grid; grid-template-columns: 64px 1fr auto auto; align-items: center; gap: 10px;
           padding: 9px 2px; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
@@ -119,8 +128,13 @@ function seasonHTML(season) {
       <span class="att"><b>${esc(g.a)}</b>–<b>${esc(g.h)}</b></span>
       ${winnerBadge(g)}
     </div>`).join("");
+  const champ = s.aw > s.hw ? "r-arne" : s.hw > s.aw ? "r-harald"
+              : s.spread > 0 ? "r-arne" : s.spread < 0 ? "r-harald" : "";
+  const resume = season.resume
+    ? `<div class="resume ${champ}"><b>🏁 Season recap:</b> ${esc(season.resume)}</div>` : "";
   return `
     <section class="season">
+      ${resume}
       <p class="season-title">${esc(season.title)}</p>
       <div class="score">
         <div class="col arne"><span class="name">Arne</span><span class="num">${s.aw}</span></div>
