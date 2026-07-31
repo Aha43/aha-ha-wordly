@@ -27,6 +27,7 @@ static — never hand-edit scores into it.
 
 When Arne says something like *"June 3 — Arne 4, Harald 3"*:
 
+0. `git pull` first — Arne logs scores from more than one machine.
 1. Open the current month's file in `scores/`.
 2. Append a row to the games table (see format below).
 3. Update the leader line under the title (see format below).
