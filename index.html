@@ -51,6 +51,7 @@
   .shout .back { float: right; margin-left: 10px; color: var(--dim); cursor: pointer;
                  font-size: .78rem; font-style: normal; user-select: none; }
   .shout .back:hover { color: var(--txt); }
+  .shout .nospeaker { color: var(--dim); font-style: italic; }
 
   .resume { background: var(--card2); border: 1px solid var(--line); border-left: 3px solid var(--tie);
             border-radius: 12px; padding: 10px 14px; margin: 0 0 14px; font-size: .9rem;
@@ -65,8 +66,8 @@
   .game { display: grid; grid-template-columns: 64px 1fr auto auto; align-items: center; gap: 10px;
           padding: 9px 2px; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
   .game:last-child { border-bottom: none; }
-  .game.has-shout { cursor: pointer; }
-  .game.has-shout:hover { background: rgba(255,255,255,.035); }
+  .games .game { cursor: pointer; }
+  .games .game:hover { background: rgba(255,255,255,.035); }
   .game.sel { background: rgba(255,255,255,.055); }
   .game .mark { font-size: .6rem; opacity: .4; margin-left: 6px; }
   .game .date { color: var(--dim); font-size: .8rem; }
@@ -132,7 +133,8 @@ function shoutHTML(season, gi) {
   const g = season.games[gi];
   const isLatest = gi === latestShoutIdx(season.games);
   const back = isLatest ? "" : `<span class="back" data-back="1">latest ↩</span>`;
-  return `${back}<b>📣 ${esc(g.date)} · ${esc(g.word)}:</b> ${esc(g.shout)}`;
+  const txt = g.shout ? esc(g.shout) : `<span class="nospeaker">No speaker was yet hired!</span>`;
+  return `${back}<b>📣 ${esc(g.date)} · ${esc(g.word)}:</b> ${txt}`;
 }
 
 function seasonHTML(season, si) {
@@ -172,7 +174,7 @@ function seasonHTML(season, si) {
 function selectShout(si, gi) {
   const season = SEASONS[si];
   const box = document.querySelector(`[data-shoutbox="${si}"]`);
-  if (!box || !season.games[gi] || !season.games[gi].shout) return;
+  if (!box || !season.games[gi]) return;
   box.innerHTML = shoutHTML(season, gi);
   document.querySelectorAll(`.game.sel[data-si="${si}"]`).forEach(el => el.classList.remove("sel"));
   const row = document.querySelector(`.game[data-si="${si}"][data-gi="${gi}"]`);
@@ -187,7 +189,7 @@ document.getElementById("root").addEventListener("click", e => {
     selectShout(si, latestShoutIdx(SEASONS[si].games));
     return;
   }
-  const row = e.target.closest(".game.has-shout");
+  const row = e.target.closest(".game");
   if (row) selectShout(+row.dataset.si, +row.dataset.gi);
 });
 
