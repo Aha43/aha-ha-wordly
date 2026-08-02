@@ -5,7 +5,10 @@
     {
       "month": "2026-06",
       "title": "June 2026",
-      "resume": "Harald took the June crown, 11 wins to 9 — a month so tight that a full third of it (10 games) ended in ties. His steadiness made the difference: just two failed solves to Arne's four, and a −7 spread built one careful guess at a time. Fittingly, the FAVØR finale finished dead level at 6–6.",
+      "resume": {
+        "en": "Harald took the June crown, 11 wins to 9 — a month so tight that a full third of it (10 games) ended in ties. His steadiness made the difference: just two failed solves to Arne's four, and a −7 spread built one careful guess at a time. Fittingly, the FAVØR finale finished dead level at 6–6.",
+        "no": "Harald tok junikronen, 11 seire mot 9 — en måned så jevn at en hel tredjedel (10 kamper) endte uavgjort. Stødigheten hans gjorde forskjellen: bare to bom mot Arnes fire, og en differanse på −7 bygget opp ett forsiktig gjett om gangen. Passende nok endte FAVØR-finalen helt likt, 6–6."
+      },
       "games": [
         { "date": "Jun 1", "word": "RUMPE", "a": "X", "h": 6 },
         { "date": "Jun 2", "word": "VAKRE", "a": 5, "h": 6 },
@@ -33,48 +36,187 @@
         { "date": "Jun 24", "word": "STYRT", "a": "X", "h": 5 },
         { "date": "Jun 25", "word": "SAVNE", "a": 5, "h": 2 },
         { "date": "Jun 26", "word": "DYBDE", "a": 5, "h": 5 },
-        { "date": "Jun 27", "word": "VEVER", "a": 5, "h": "X", "shout": "Arne ends the drought! First win since Jun 17 — and he does it in style, cracking the slippery VEVER in 5 while Harald comes up empty. A rare and glorious upset. 🎉" },
-        { "date": "Jun 28", "word": "KJØNN", "a": 3, "h": 3, "shout": "Deadlock on KJØNN — both lock it in 3, nothing between them. Arne's flicker of hope survives another day; Harald's two-win cushion holds. 🤝" },
-        { "date": "Jun 29", "word": "STEKT", "a": 5, "h": 5, "shout": "STEKT keeps the kitchen even — both sizzle to 5, the third tie in four days. Ties pile up to 9 while Harald's two-win cushion stays warm. 🍳" },
-        { "date": "Jun 30", "word": "FAVØR", "a": 6, "h": 6, "shout": "FAVØR splits the finale 6–6 and seals Harald's June crown — 11 wins to 9, with 10 ties along the way. Curtain falls in the month's favour of Harald. 👑" }
+        { "date": "Jun 27", "word": "VEVER", "a": 5, "h": "X",
+          "shout": {
+            "en": "Arne ends the drought! First win since Jun 17 — and he does it in style, cracking the slippery VEVER in 5 while Harald comes up empty. A rare and glorious upset. 🎉",
+            "no": "Arne bryter tørken! Første seier siden 17. juni — og det med stil: han knekker glatte VEVER på 5 mens Harald går tomhendt hjem. En sjelden og strålende opptur. 🎉"
+          } },
+        { "date": "Jun 28", "word": "KJØNN", "a": 3, "h": 3,
+          "shout": {
+            "en": "Deadlock on KJØNN — both lock it in 3, nothing between them. Arne's flicker of hope survives another day; Harald's two-win cushion holds. 🤝",
+            "no": "Dødt løp på KJØNN — begge låser den på 3, ingenting skiller. Arnes håpeglimt overlever enda en dag; Haralds to-seiers pute holder. 🤝"
+          } },
+        { "date": "Jun 29", "word": "STEKT", "a": 5, "h": 5,
+          "shout": {
+            "en": "STEKT keeps the kitchen even — both sizzle to 5, the third tie in four days. Ties pile up to 9 while Harald's two-win cushion stays warm. 🍳",
+            "no": "STEKT holder kjøkkenet jevnt — begge freser inn på 5, tredje uavgjort på fire dager. Uavgjortene hoper seg opp til 9 mens Haralds ledelse holder seg varm. 🍳"
+          } },
+        { "date": "Jun 30", "word": "FAVØR", "a": 6, "h": 6,
+          "shout": {
+            "en": "FAVØR splits the finale 6–6 and seals Harald's June crown — 11 wins to 9, with 10 ties along the way. Curtain falls in the month's favour of Harald. 👑",
+            "no": "FAVØR deler finalen 6–6 og sikrer Haralds junikrone — 11 seire mot 9, med 10 uavgjort på veien. Teppet faller i månedens FAVØR: Harald. 👑"
+          } }
       ]
     },
     {
       "month": "2026-07",
       "title": "July 2026",
-      "resume": "Arne's first title, and he earned it the hard way — down 2–4 after the first week, level for most of the month, then four straight wins to slam the door: 13–10, spread +8, and a cool 4.00 average. A comeback July from start to finish, give or take one mystery word whose identity is lost to history.",
+      "resume": {
+        "en": "Arne's first title, and he earned it the hard way — down 2–4 after the first week, level for most of the month, then four straight wins to slam the door: 13–10, spread +8, and a cool 4.00 average. A comeback July from start to finish, give or take one mystery word whose identity is lost to history.",
+        "no": "Arnes første tittel, og den satt langt inne — under 2–4 etter første uke, jevnt det meste av måneden, og så fire strake seire som smalt igjen døren: 13–10, differanse +8 og et pent snitt på 4,00. En comeback-juli fra start til mål — på nær ett mysterieord som er tapt for historien."
+      },
       "games": [
-        { "date": "Jul 1", "word": "HÅRET", "a": 5, "h": 4, "shout": "Harald opens July with a crisp HÅRET in 4, brushing past Arne's 5. 💇" },
-        { "date": "Jul 2", "word": "KILDE", "a": 4, "h": 4, "shout": "Dead heat at the KILDE — both draw water in 4 and split the spoils. 🤝" },
-        { "date": "Jul 3", "word": "VERDT", "a": 3, "h": 4, "shout": "Arne proves his worth — nails VERDT in 3 to Harald's 4 and levels July. 🦸" },
-        { "date": "Jul 4", "word": "MODIG", "a": 3, "h": 4, "shout": "Fortune favours the brave — Arne cracks MODIG in 3 for back-to-back wins and grabs the July lead! 💪" },
-        { "date": "Jul 5", "word": "EPLER", "a": "X", "h": 4, "shout": "Horror strikes again — EPLER leaves Arne empty-handed while Harald munches through the apples in 4 to snatch the lead. 🍎😱" },
-        { "date": "Jul 6", "word": "ORDET", "a": 3, "h": 3, "shout": "Both get the last word — ORDET falls in 3 apiece, and Harald clings to his slender spread lead. 🤝" },
-        { "date": "Jul 7", "word": "LITEN", "a": 3, "h": 2, "shout": "Small word, big flex — Harald snipes LITEN in just 2, sinking Arne's perfectly decent 3. 🎯" },
-        { "date": "Jul 8", "word": "SITTE", "a": 5, "h": 4, "shout": "Harald won't SITTE still — his 4 edges Arne's 5 for back-to-back wins and a two-game cushion. 🪑" },
-        { "date": "Jul 9", "word": "KALLE", "a": 3, "h": 3, "shout": "Dead heat on RAPPA — both rap it out in 3, and Harald's win streak stalls without slipping. 🤝" },
-        { "date": "Jul 10", "word": "VEDTA", "a": 5, "h": 4, "shout": "The verdict on VEDTA is 4–5 to Harald — he's decided this month, five wins to two. 🔨" },
-        { "date": "Jul 11", "word": "FRYSE", "a": 4, "h": 4, "shout": "Both freeze on FRYSE in 4 — a chilly stalemate that keeps Harald's five-win lead on ice. ❄️" },
-        { "date": "Jul 12", "word": "NISSE", "a": 4, "h": 6, "shout": "Arne's NISSE comes early — a tidy 4 while Harald scrapes home in 6, and the +2 trims Harald's lead to two. 🎅" },
-        { "date": "Jul 13", "word": "SLØSE", "a": 4, "h": 6, "shout": "No SLØSE from Arne — a clean 4 to Harald's 6 again, back-to-back +2s that shave the lead to a single win. 💸" },
-        { "date": "Jul 14", "word": "HJALP", "a": 4, "h": 3, "shout": "HJALP arrives for Harald — a slick 3 stops Arne's charge in its tracks and pushes the lead back to two. 🆘" },
-        { "date": "Jul 15", "word": "FORBY", "a": 5, "h": 4, "shout": "Harald forbids a comeback — FORBY in 4 to Arne's 5, a third straight win to stretch the lead to three. 🚫" },
-        { "date": "Jul 16", "word": "KOKOS", "a": 4, "h": 4, "shout": "KOKOS splits 4–4 — a tidy tie that halts Harald's three-win run without denting the lead. 🥥" },
-        { "date": "Jul 17", "word": "EPOKE", "a": 3, "h": 5, "shout": "Arne opens a new EPOKE in 3 to Harald's 5 — a +2 that yanks the spread back to −1. ⏳" },
-        { "date": "Jul 18", "word": "LUSKE", "a": 4, "h": 3, "shout": "Harald sneaks LUSKE home in 3 to Arne's 4 — a quiet win that nudges the lead back to three. 🕵️" },
-        { "date": "Jul 19", "word": "KABAL", "a": 5, "h": 4, "shout": "Harald lays out KABAL in 4 to Arne's 5 — back-to-back wins that push him to nine and stretch the lead to four. 🃏" },
+        { "date": "Jul 1", "word": "HÅRET", "a": 5, "h": 4,
+          "shout": {
+            "en": "Harald opens July with a crisp HÅRET in 4, brushing past Arne's 5. 💇",
+            "no": "Harald åpner juli med et velfrisert HÅRET på 4 og børster forbi Arnes 5. 💇"
+          } },
+        { "date": "Jul 2", "word": "KILDE", "a": 4, "h": 4,
+          "shout": {
+            "en": "Dead heat at the KILDE — both draw water in 4 and split the spoils. 🤝",
+            "no": "Dødt løp ved KILDEN — begge øser opp svaret på 4 og deler potten. 🤝"
+          } },
+        { "date": "Jul 3", "word": "VERDT", "a": 3, "h": 4,
+          "shout": {
+            "en": "Arne proves his worth — nails VERDT in 3 to Harald's 4 and levels July. 🦸",
+            "no": "Arne viser hva han er VERDT — tar den på 3 mot Haralds 4 og utligner juli. 🦸"
+          } },
+        { "date": "Jul 4", "word": "MODIG", "a": 3, "h": 4,
+          "shout": {
+            "en": "Fortune favours the brave — Arne cracks MODIG in 3 for back-to-back wins and grabs the July lead! 💪",
+            "no": "Lykken står den MODIGE bi — Arne knekker den på 3, andre seier på rad, og napper juliledelsen! 💪"
+          } },
+        { "date": "Jul 5", "word": "EPLER", "a": "X", "h": 4,
+          "shout": {
+            "en": "Horror strikes again — EPLER leaves Arne empty-handed while Harald munches through the apples in 4 to snatch the lead. 🍎😱",
+            "no": "Marerittet slår til igjen — EPLER lar Arne stå tomhendt mens Harald gomler seg gjennom på 4 og stjeler ledelsen. 🍎😱"
+          } },
+        { "date": "Jul 6", "word": "ORDET", "a": 3, "h": 3,
+          "shout": {
+            "en": "Both get the last word — ORDET falls in 3 apiece, and Harald clings to his slender spread lead. 🤝",
+            "no": "Begge får siste ORDET — den faller på 3 hos begge, og Harald klamrer seg til sin knappe differanseledelse. 🤝"
+          } },
+        { "date": "Jul 7", "word": "LITEN", "a": 3, "h": 2,
+          "shout": {
+            "en": "Small word, big flex — Harald snipes LITEN in just 2, sinking Arne's perfectly decent 3. 🎯",
+            "no": "Lite ord, stor triumf — Harald sniper LITEN på bare 2 og senker Arnes helt hederlige 3. 🎯"
+          } },
+        { "date": "Jul 8", "word": "SITTE", "a": 5, "h": 4,
+          "shout": {
+            "en": "Harald won't SITTE still — his 4 edges Arne's 5 for back-to-back wins and a two-game cushion. 🪑",
+            "no": "Harald vil ikke SITTE stille — hans 4 slår Arnes 5, to seire på rad og en to-seiers pute. 🪑"
+          } },
+        { "date": "Jul 9", "word": "KALLE", "a": 3, "h": 3,
+          "shout": {
+            "en": "Dead heat on RAPPA — both rap it out in 3, and Harald's win streak stalls without slipping. 🤝",
+            "no": "Dødt løp på RAPPA — begge rapper den på 3, og Haralds seiersrekke stopper uten å skli. 🤝"
+          } },
+        { "date": "Jul 10", "word": "VEDTA", "a": 5, "h": 4,
+          "shout": {
+            "en": "The verdict on VEDTA is 4–5 to Harald — he's decided this month, five wins to two. 🔨",
+            "no": "Dommen over VEDTA er 4–5 til Harald — han har VEDTAtt denne måneden: fem seire mot to. 🔨"
+          } },
+        { "date": "Jul 11", "word": "FRYSE", "a": 4, "h": 4,
+          "shout": {
+            "en": "Both freeze on FRYSE in 4 — a chilly stalemate that keeps Harald's five-win lead on ice. ❄️",
+            "no": "Begge FRYSER på 4 — en kjølig stillstand som holder Haralds fem-seiers ledelse på is. ❄️"
+          } },
+        { "date": "Jul 12", "word": "NISSE", "a": 4, "h": 6,
+          "shout": {
+            "en": "Arne's NISSE comes early — a tidy 4 while Harald scrapes home in 6, and the +2 trims Harald's lead to two. 🎅",
+            "no": "Arnes NISSE kommer tidlig — ryddige 4 mens Harald karrer seg inn på 6, og +2 kutter Haralds ledelse til to. 🎅"
+          } },
+        { "date": "Jul 13", "word": "SLØSE", "a": 4, "h": 6,
+          "shout": {
+            "en": "No SLØSE from Arne — a clean 4 to Harald's 6 again, back-to-back +2s that shave the lead to a single win. 💸",
+            "no": "Arne SLØSER ikke — rene 4 mot Haralds 6 igjen, to +2 på rad som barberer ledelsen ned til én seier. 💸"
+          } },
+        { "date": "Jul 14", "word": "HJALP", "a": 4, "h": 3,
+          "shout": {
+            "en": "HJALP arrives for Harald — a slick 3 stops Arne's charge in its tracks and pushes the lead back to two. 🆘",
+            "no": "HJALP kommer til Harald — glatte 3 stopper Arnes fremstøt og skyver ledelsen tilbake til to. 🆘"
+          } },
+        { "date": "Jul 15", "word": "FORBY", "a": 5, "h": 4,
+          "shout": {
+            "en": "Harald forbids a comeback — FORBY in 4 to Arne's 5, a third straight win to stretch the lead to three. 🚫",
+            "no": "Harald FORBYr comeback — FORBY på 4 mot Arnes 5, tredje strake seier og ledelsen strekkes til tre. 🚫"
+          } },
+        { "date": "Jul 16", "word": "KOKOS", "a": 4, "h": 4,
+          "shout": {
+            "en": "KOKOS splits 4–4 — a tidy tie that halts Harald's three-win run without denting the lead. 🥥",
+            "no": "KOKOS deler seg 4–4 — en ryddig uavgjort som stanser Haralds tre-seiers rekke uten å bulke ledelsen. 🥥"
+          } },
+        { "date": "Jul 17", "word": "EPOKE", "a": 3, "h": 5,
+          "shout": {
+            "en": "Arne opens a new EPOKE in 3 to Harald's 5 — a +2 that yanks the spread back to −1. ⏳",
+            "no": "Arne åpner en ny EPOKE på 3 mot Haralds 5 — en +2 som rykker differansen tilbake til −1. ⏳"
+          } },
+        { "date": "Jul 18", "word": "LUSKE", "a": 4, "h": 3,
+          "shout": {
+            "en": "Harald sneaks LUSKE home in 3 to Arne's 4 — a quiet win that nudges the lead back to three. 🕵️",
+            "no": "Harald LUSKER den hjem på 3 mot Arnes 4 — en stille seier som dytter ledelsen tilbake til tre. 🕵️"
+          } },
+        { "date": "Jul 19", "word": "KABAL", "a": 5, "h": 4,
+          "shout": {
+            "en": "Harald lays out KABAL in 4 to Arne's 5 — back-to-back wins that push him to nine and stretch the lead to four. 🃏",
+            "no": "Harald legger KABALEN på 4 mot Arnes 5 — to strake seire som løfter ham til ni og strekker ledelsen til fire. 🃏"
+          } },
         { "date": "Jul 20", "word": "?", "a": 4, "h": 3 },
-        { "date": "Jul 21", "word": "HUSET", "a": 3, "h": 3, "shout": "The lost Jul 20 resurfaces — Harald had it in 3 to Arne's 4 (word forgotten), quietly nudging the lead to five and the spread to −4. 🔍" },
-        { "date": "Jul 22", "word": "PILLE", "a": 4, "h": 6, "shout": "Arne pops a PILLE in 4 while Harald burns all 6 — a +2 tonic that trims the lead and halves the spread to −2. 💊" },
-        { "date": "Jul 23", "word": "HVILE", "a": 5, "h": 6, "shout": "No rest for the chase — Arne takes HVILE in 5 to Harald's 6, a third straight win that squeezes the spread to −1. 😴" },
-        { "date": "Jul 24", "word": "TÅLTE", "a": 4, "h": 5, "shout": "Arne TÅLTE the pressure — a fourth straight win, 4 to Harald's 5, and the season spread is finally back to level. ⚖️" },
-        { "date": "Jul 25", "word": "BRANN", "a": 3, "h": 3, "shout": "BRANN blazes to a 3–3 draw — Arne's four-win streak cools, but the spread stays dead level. 🔥" },
-        { "date": "Jul 26", "word": "SYNGE", "a": 4, "h": 5, "shout": "Arne hits the right note — SYNGE in 4 to Harald's 5, cutting the wins gap to one and tipping the spread into the plus for the first time. 🎶" },
-        { "date": "Jul 27", "word": "LYTTE", "a": 4, "h": 4, "shout": "Both LYTTE closely for a 4–4 draw — no ground gained either way, and Arne keeps his slender +1 edge. 👂" },
-        { "date": "Jul 28", "word": "FIKSE", "a": 3, "h": 5, "shout": "Arne FIKSE's it in 3 to Harald's 5 — the wins draw level at 10 apiece and the +2 hands Arne the outright lead for the first time. 🔧" },
-        { "date": "Jul 29", "word": "HVILT", "a": 4, "h": 6, "shout": "Well HVILT indeed — a rested Arne strolls in with 4 while Harald slogs to 6, and the wins lead is finally Arne's, 11–10. 😴" },
-        { "date": "Jul 30", "word": "VOKAL", "a": 4, "h": 5, "shout": "Arne's in fine VOKAL form — a 4 to Harald's 5 makes it three wins on the trot and a 12–10 lead with one game left in July. 🎤" },
-        { "date": "Jul 31", "word": "VILLE", "a": 4, "h": 6, "shout": "Arne VILLE have the crown — and takes it! A 4 to Harald's 6 caps July with four straight wins and the season title, 13–10. 👑" }
+        { "date": "Jul 21", "word": "HUSET", "a": 3, "h": 3,
+          "shout": {
+            "en": "The lost Jul 20 resurfaces — Harald had it in 3 to Arne's 4 (word forgotten), quietly nudging the lead to five and the spread to −4. 🔍",
+            "no": "Den tapte 20. juli dukker opp igjen — Harald tok den på 3 mot Arnes 4 (ordet glemt), og lister ledelsen opp til fem og differansen til −4. 🔍"
+          } },
+        { "date": "Jul 22", "word": "PILLE", "a": 4, "h": 6,
+          "shout": {
+            "en": "Arne pops a PILLE in 4 while Harald burns all 6 — a +2 tonic that trims the lead and halves the spread to −2. 💊",
+            "no": "Arne svelger en PILLE på 4 mens Harald brenner alle 6 — en +2-kur som kutter ledelsen og halverer differansen til −2. 💊"
+          } },
+        { "date": "Jul 23", "word": "HVILE", "a": 5, "h": 6,
+          "shout": {
+            "en": "No rest for the chase — Arne takes HVILE in 5 to Harald's 6, a third straight win that squeezes the spread to −1. 😴",
+            "no": "Ingen HVILE i jakten — Arne tar HVILE på 5 mot Haralds 6, tredje strake seier og differansen skvises til −1. 😴"
+          } },
+        { "date": "Jul 24", "word": "TÅLTE", "a": 4, "h": 5,
+          "shout": {
+            "en": "Arne TÅLTE the pressure — a fourth straight win, 4 to Harald's 5, and the season spread is finally back to level. ⚖️",
+            "no": "Arne TÅLTE presset — fjerde strake seier, 4 mot Haralds 5, og sesongdifferansen er endelig i null igjen. ⚖️"
+          } },
+        { "date": "Jul 25", "word": "BRANN", "a": 3, "h": 3,
+          "shout": {
+            "en": "BRANN blazes to a 3–3 draw — Arne's four-win streak cools, but the spread stays dead level. 🔥",
+            "no": "BRANN flammer til 3–3 — Arnes fire-seiers rekke kjølner, men differansen står bom fast i null. 🔥"
+          } },
+        { "date": "Jul 26", "word": "SYNGE", "a": 4, "h": 5,
+          "shout": {
+            "en": "Arne hits the right note — SYNGE in 4 to Harald's 5, cutting the wins gap to one and tipping the spread into the plus for the first time. 🎶",
+            "no": "Arne treffer tonen — SYNGE på 4 mot Haralds 5 kutter seiersgapet til én og vipper differansen i pluss for første gang. 🎶"
+          } },
+        { "date": "Jul 27", "word": "LYTTE", "a": 4, "h": 4,
+          "shout": {
+            "en": "Both LYTTE closely for a 4–4 draw — no ground gained either way, and Arne keeps his slender +1 edge. 👂",
+            "no": "Begge LYTTER seg fram til 4–4 — ingen vinner terreng, og Arne beholder sin hårfine +1-ledelse. 👂"
+          } },
+        { "date": "Jul 28", "word": "FIKSE", "a": 3, "h": 5,
+          "shout": {
+            "en": "Arne FIKSE's it in 3 to Harald's 5 — the wins draw level at 10 apiece and the +2 hands Arne the outright lead for the first time. 🔧",
+            "no": "Arne FIKSER den på 3 mot Haralds 5 — seirene utlignes til 10 hver, og +2 gir Arne den rene ledelsen for aller første gang. 🔧"
+          } },
+        { "date": "Jul 29", "word": "HVILT", "a": 4, "h": 6,
+          "shout": {
+            "en": "Well HVILT indeed — a rested Arne strolls in with 4 while Harald slogs to 6, and the wins lead is finally Arne's, 11–10. 😴",
+            "no": "Godt HVILT, gitt — en uthvilt Arne rusler inn på 4 mens Harald sliter seg til 6, og seiersledelsen er endelig Arnes, 11–10. 😴"
+          } },
+        { "date": "Jul 30", "word": "VOKAL", "a": 4, "h": 5,
+          "shout": {
+            "en": "Arne's in fine VOKAL form — a 4 to Harald's 5 makes it three wins on the trot and a 12–10 lead with one game left in July. 🎤",
+            "no": "Arne i storslått VOKAL form — 4 mot Haralds 5 gir tre strake seire og 12–10-ledelse med én kamp igjen av juli. 🎤"
+          } },
+        { "date": "Jul 31", "word": "VILLE", "a": 4, "h": 6,
+          "shout": {
+            "en": "Arne VILLE have the crown — and takes it! A 4 to Harald's 6 caps July with four straight wins and the season title, 13–10. 👑",
+            "no": "Arne VILLE ha kronen — og tar den! 4 mot Haralds 6 avslutter juli med fire strake seire og sesongtittelen, 13–10. 👑"
+          } }
       ]
     },
     {
@@ -82,8 +224,16 @@
       "title": "August 2026",
       "resume": "",
       "games": [
-        { "date": "Aug 1", "word": "BODDE", "a": 4, "h": 5, "shout": "Arne's BODDE in and made himself at home — the opener falls in 4 to Harald's 5, five straight wins bridging July into August. 🏠" },
-        { "date": "Aug 2", "word": "HEIST", "a": 4, "h": "X", "shout": "The perfect HEIST — Arne makes off with it in 4 while Harald walks away empty-handed. Six straight wins, and August is looking like daylight robbery. 🕵️" }
+        { "date": "Aug 1", "word": "BODDE", "a": 4, "h": 5,
+          "shout": {
+            "en": "Arne's BODDE in and made himself at home — the opener falls in 4 to Harald's 5, five straight wins bridging July into August. 🏠",
+            "no": "Arne har BODD seg til rette — åpneren faller på 4 mot Haralds 5, fem strake seire som spenner fra juli inn i august. 🏠"
+          } },
+        { "date": "Aug 2", "word": "HEIST", "a": 4, "h": "X",
+          "shout": {
+            "en": "The perfect HEIST — Arne makes off with it in 4 while Harald walks away empty-handed. Six straight wins, and August is looking like daylight robbery. 🕵️",
+            "no": "Flagget er HEIST — Arne haler den i land på 4 mens Harald går tomhendt hjem. Seks strake seire, og august ligner rent ran ved høylys dag. 🕵️"
+          } }
       ]
     }
   ]

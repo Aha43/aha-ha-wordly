@@ -36,11 +36,22 @@ When Arne says something like *"June 3 — Arne 4, Harald 3"*:
 5. Update the matching row in `README.md` (wins, ties, spread, champion).
 6. Update the `## Latest` section in `README.md` (see format below).
 7. Append the game to the current season's `games` array in `data.json`,
-   including the fresh shoutout from step 3a as a `shout` field
-   (`{ "date": "Jun 3", "word": "CRANE", "a": 4, "h": 3, "shout": "…" }`;
-   use `"X"` for a failed solve; plain text shout, no `> 📣 **Shoutout:**`
-   prefix — the page adds that). The page computes all stats from this, so no
-   stat edits here. Shoutouts are per-game and permanent: the page shows the
+   including the fresh shoutout from step 3a as a bilingual `shout` object:
+
+   ```json
+   { "date": "Jun 3", "word": "CRANE", "a": 4, "h": 3,
+     "shout": {
+       "en": "English shoutout …",
+       "no": "Norsk utrop …"
+     } }
+   ```
+
+   Use `"X"` for a failed solve. Plain text shouts, no `> 📣 **Shoutout:**`
+   prefix — the page adds that. The markdown file keeps only the English
+   version; for `"no"`, write natural Norwegian (bokmål) and re-craft any
+   wordplay so it lands in Norwegian — don't translate literally. The page
+   has a 🇳🇴/🇬🇧 switch and computes all stats from this data, so no stat
+   edits here. Shoutouts are per-game and permanent: the page shows the
    latest by default and lets visitors click any row to read that game's
    shoutout, so never rewrite older games' `shout` values.
 8. Commit with a short message, e.g. `Add Jun 3 — Arne 4 Harald 3`.
@@ -116,9 +127,12 @@ about the latest result, not a running log.
 ## Season resume (when a season ends)
 
 When a month's final game is logged (or a finished season lacks one), write a
-`resume` field on that season's object in `data.json`. The page shows it in a
-box **above the season title**, accented in the champion's color. Unlike the
-shoutout it is permanent — written once when the season ends, never rewritten.
+`resume` field on that season's object in `data.json`, as a bilingual object
+(`{ "en": "…", "no": "…" }` — same translation rules as shoutouts). The page
+shows it in a box **above the season title**, accented in the champion's
+color. Unlike the shoutout it is permanent — written once when the season
+ends, never rewritten. While a season is ongoing, `resume` is the empty
+string `""`.
 
 - 2–3 sentences telling the story of the month: who won and how, the shape of
   the race (wire-to-wire, comeback, nail-biter), and one or two standout stats

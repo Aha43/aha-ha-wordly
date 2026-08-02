@@ -30,6 +30,10 @@
   .topbar h1 { font-size: 1.15rem; margin: 0; letter-spacing: .3px; }
   .topbar a { color: var(--dim); text-decoration: none; font-size: .85rem; }
   .topbar a:hover { color: var(--txt); }
+  .topright { display: flex; align-items: baseline; gap: 14px; }
+  .flag { cursor: pointer; opacity: .3; font-size: 1.05rem; user-select: none; transition: opacity .15s; }
+  .flag:hover { opacity: .6; }
+  .flag.on { opacity: 1; }
 
   .season { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px; margin-bottom: 22px; }
   .season-title { font-size: .8rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--dim); margin: 0 0 12px; }
@@ -87,15 +91,37 @@
 <div class="wrap">
   <div class="topbar">
     <h1>🟩 Arne vs Harald</h1>
-    <a id="playlink" href="https://gjett.net/" target="_blank" rel="noopener">Play ↗</a>
+    <span class="topright">
+      <span id="langsw"><span class="flag" data-lang="no">🇳🇴</span> <span class="flag" data-lang="en">🇬🇧</span></span>
+      <a id="playlink" href="https://gjett.net/" target="_blank" rel="noopener">Play ↗</a>
+    </span>
   </div>
   <div id="root"><div class="loading">Loading…</div></div>
-  <div class="footer">Daily Wordle head-to-head · X = didn't solve (counts as 7)</div>
+  <div class="footer" id="foot">Daily Wordle head-to-head · X = didn't solve (counts as 7)</div>
 </div>
 
 <script>
 const val = x => x === "X" ? 7 : x;
 const esc = s => String(s).replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+
+const I18N = {
+  en: { play: "Play ↗", recap: "Season recap", latest: "latest ↩",
+        nospeaker: "No speaker was yet hired!", tieBadge: "TIE",
+        tie: n => n === 1 ? "1 tie" : n + " ties", spread: "spread", avg: "avg",
+        leadWins: n => `${n} leads on wins`, leadSpread: n => `${n} leads on spread`,
+        square: "All square",
+        footer: "Daily Wordle head-to-head · X = didn't solve (counts as 7)" },
+  no: { play: "Spill ↗", recap: "Sesongoppsummering", latest: "siste ↩",
+        nospeaker: "Ingen utroper var ansatt ennå!", tieBadge: "UAVGJORT",
+        tie: n => `${n} uavgjort`, spread: "differanse", avg: "snitt",
+        leadWins: n => `${n} leder på seire`, leadSpread: n => `${n} leder på differanse`,
+        square: "Helt likt",
+        footer: "Daglig Wordle-duell · X = ikke løst (teller som 7)" }
+};
+let LANG = localStorage.getItem("lang") || "en";
+if (!I18N[LANG]) LANG = "en";
+const T = () => I18N[LANG];
+const tr = v => typeof v === "string" ? v : (v[LANG] || v.en);
 
 function statsFor(games) {
   let aw = 0, hw = 0, ties = 0, aTot = 0, hTot = 0, spread = 0;
@@ -110,18 +136,18 @@ function statsFor(games) {
 }
 
 function leadLine(s) {
-  if (s.aw > s.hw) return { who: "Arne", txt: "Arne leads on wins" };
-  if (s.hw > s.aw) return { who: "Harald", txt: "Harald leads on wins" };
-  if (s.spread > 0) return { who: "Arne", txt: "Arne leads on spread" };
-  if (s.spread < 0) return { who: "Harald", txt: "Harald leads on spread" };
-  return { who: null, txt: "All square" };
+  if (s.aw > s.hw) return T().leadWins("Arne");
+  if (s.hw > s.aw) return T().leadWins("Harald");
+  if (s.spread > 0) return T().leadSpread("Arne");
+  if (s.spread < 0) return T().leadSpread("Harald");
+  return T().square;
 }
 
 function winnerBadge(g) {
   const a = val(g.a), h = val(g.h);
   if (a < h) return '<span class="badge b-arne">ARNE</span>';
   if (h < a) return '<span class="badge b-harald">HARALD</span>';
-  return '<span class="badge b-tie">TIE</span>';
+  return `<span class="badge b-tie">${T().tieBadge}</span>`;
 }
 
 const latestShoutIdx = games => {
@@ -132,15 +158,15 @@ const latestShoutIdx = games => {
 function shoutHTML(season, gi) {
   const g = season.games[gi];
   const isLatest = gi === latestShoutIdx(season.games);
-  const back = isLatest ? "" : `<span class="back" data-back="1">latest ↩</span>`;
-  const txt = g.shout ? esc(g.shout) : `<span class="nospeaker">No speaker was yet hired!</span>`;
+  const back = isLatest ? "" : `<span class="back" data-back="1">${T().latest}</span>`;
+  const txt = g.shout ? esc(tr(g.shout)) : `<span class="nospeaker">${T().nospeaker}</span>`;
   return `${back}<b>📣 ${esc(g.date)} · ${esc(g.word)}:</b> ${txt}`;
 }
 
 function seasonHTML(season, si) {
   const s = statsFor(season.games);
   const lead = leadLine(s);
-  const tieTxt = s.ties === 1 ? "1 tie" : s.ties + " ties";
+  const tieTxt = T().tie(s.ties);
   const sp = (s.spread > 0 ? "+" : "") + s.spread;
   const shoutIdx = latestShoutIdx(season.games);
   const rows = season.games.map((g, gi) => `
@@ -154,7 +180,7 @@ function seasonHTML(season, si) {
   const champ = s.aw > s.hw ? "r-arne" : s.hw > s.aw ? "r-harald"
               : s.spread > 0 ? "r-arne" : s.spread < 0 ? "r-harald" : "";
   const resume = season.resume
-    ? `<div class="resume ${champ}"><b>🏁 Season recap:</b> ${esc(season.resume)}</div>` : "";
+    ? `<div class="resume ${champ}"><b>🏁 ${T().recap}:</b> ${esc(tr(season.resume))}</div>` : "";
   return `
     <section class="season">
       ${resume}
@@ -164,8 +190,8 @@ function seasonHTML(season, si) {
         <span class="dash">–</span>
         <div class="col harald"><span class="name">Harald</span><span class="num">${s.hw}</span></div>
       </div>
-      <div class="subline">${tieTxt} · spread ${sp} · avg ${s.aAvg.toFixed(1)} / ${s.hAvg.toFixed(1)}</div>
-      <div class="lead">${esc(lead.txt)}</div>
+      <div class="subline">${tieTxt} · ${T().spread} ${sp} · ${T().avg} ${s.aAvg.toFixed(1)} / ${s.hAvg.toFixed(1)}</div>
+      <div class="lead">${esc(lead)}</div>
       ${shoutIdx >= 0 ? `<div class="shout" data-shoutbox="${si}">${shoutHTML(season, shoutIdx)}</div>` : ""}
       <div class="games">${rows}</div>
     </section>`;
@@ -182,6 +208,24 @@ function selectShout(si, gi) {
 }
 
 let SEASONS = [];
+
+function render() {
+  document.getElementById("playlink").textContent = T().play;
+  document.getElementById("foot").textContent = T().footer;
+  document.querySelectorAll(".flag").forEach(f => f.classList.toggle("on", f.dataset.lang === LANG));
+  const order = SEASONS.map((s, i) => i).reverse(); // newest first
+  document.getElementById("root").innerHTML =
+    order.map(i => seasonHTML(SEASONS[i], i)).join("");
+}
+
+document.getElementById("langsw").addEventListener("click", e => {
+  const f = e.target.closest(".flag");
+  if (!f || f.dataset.lang === LANG) return;
+  LANG = f.dataset.lang;
+  localStorage.setItem("lang", LANG);
+  render();
+});
+
 document.getElementById("root").addEventListener("click", e => {
   const back = e.target.closest("[data-back]");
   if (back) {
@@ -198,9 +242,7 @@ fetch("data.json?v=" + Date.now(), { cache: "no-store" })
   .then(data => {
     if (data.play_url) document.getElementById("playlink").href = data.play_url;
     SEASONS = data.seasons;
-    const order = SEASONS.map((s, i) => i).reverse(); // newest first
-    document.getElementById("root").innerHTML =
-      order.map(i => seasonHTML(SEASONS[i], i)).join("");
+    render();
   })
   .catch(e => {
     document.getElementById("root").innerHTML =
