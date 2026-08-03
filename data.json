@@ -233,6 +233,11 @@
           "shout": {
             "en": "The perfect HEIST — Arne makes off with it in 4 while Harald walks away empty-handed. Six straight wins, and August is looking like daylight robbery. 🕵️",
             "no": "Flagget er HEIST — Arne haler den i land på 4 mens Harald går tomhendt hjem. Seks strake seire, og august ligner rent ran ved høylys dag. 🕵️"
+          } },
+        { "date": "Aug 3", "word": "TREET", "a": "X", "h": 4,
+          "shout": {
+            "en": "Even the tallest trees fall — Arne barks up the wrong TREET and X's out while Harald climbs home in 4. Six straight wins felled in a single chop. 🌳",
+            "no": "Selv de høyeste trær faller — Arne bommer på TREET (X) mens Harald klatrer i mål på 4. Seks strake seire hugget ned i ett kutt. 🌳"
           } }
       ]
     }
