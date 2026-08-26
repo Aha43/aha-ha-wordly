@@ -55,6 +55,9 @@ When Arne says something like *"June 3 — Arne 4, Harald 3"*:
    latest by default and lets visitors click any row to read that game's
    shoutout, so never rewrite older games' `shout` values.
 8. Commit with a short message, e.g. `Add Jun 3 — Arne 4 Harald 3`.
+9. `git push` — the public page is served by GitHub Pages, so an unpushed
+   commit means neither Arne nor Harald sees the new score. Never stop at
+   step 8.
 
 When starting a new month, also add a new season object at the end of the
 `seasons` array in `data.json` (`{ "month": "YYYY-MM", "title": "Month YYYY",
