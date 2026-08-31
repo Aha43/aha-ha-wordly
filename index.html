@@ -41,7 +41,11 @@
   .score { display: flex; align-items: flex-end; justify-content: center; gap: 14px; margin: 6px 0 4px; }
   .score .name { font-size: .72rem; letter-spacing: 1px; text-transform: uppercase; color: var(--dim); text-align: center; }
   .score .num { font-size: 2.8rem; font-weight: 800; line-height: 1; }
-  .score .col { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .score .col { display: flex; flex-direction: column; align-items: center; gap: 4px;
+                cursor: pointer; padding: 4px 10px; border-radius: 12px; transition: background .15s; }
+  .score .col:hover { background: rgba(255,255,255,.05); }
+  .score .col .name { text-decoration: underline dotted; text-underline-offset: 3px; }
+  .score .col:hover .name { color: var(--txt); }
   .score .dash { font-size: 1.8rem; line-height: 1; color: var(--dim); font-weight: 300; padding: 0 2px; margin-bottom: .5rem; }
   .arne .num { color: var(--arne); }
   .harald .num { color: var(--harald); }
@@ -83,6 +87,43 @@
   .b-harald { background: rgba(201,180,88,.2); color: var(--harald); }
   .b-tie { background: rgba(107,114,128,.25); color: #b9bfca; }
 
+  .modal-bg { position: fixed; inset: 0; background: rgba(0,0,0,.62); z-index: 50;
+              display: flex; align-items: center; justify-content: center; padding: 18px; }
+  .modal { background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+           width: 100%; max-width: 420px; max-height: 86vh; overflow-y: auto; padding: 18px; }
+  .modal-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 14px; }
+  .modal-head h2 { margin: 0; font-size: 1.3rem; letter-spacing: .5px; }
+  .modal-head .sub { font-size: .68rem; text-transform: uppercase; letter-spacing: 1.4px; color: var(--dim); }
+  .modal-head .x { cursor: pointer; color: var(--dim); font-size: 1.15rem; line-height: 1; user-select: none; }
+  .modal-head .x:hover { color: var(--txt); }
+  .p-arne h2 { color: var(--arne); }
+  .p-harald h2 { color: var(--harald); }
+
+  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; margin-bottom: 10px; }
+  .kpi { background: var(--card2); border: 1px solid var(--line); border-radius: 10px; padding: 8px 4px; text-align: center; }
+  .kpi .v { font-size: 1.15rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .kpi .k { font-size: .58rem; text-transform: uppercase; letter-spacing: .7px; color: var(--dim); }
+  .runline { text-align: center; color: var(--dim); font-size: .82rem; margin: 0 0 16px; }
+
+  .msec { font-size: .68rem; text-transform: uppercase; letter-spacing: 1.4px; color: var(--dim); margin: 0 0 8px; }
+  .dist { margin-bottom: 16px; }
+  .drow { display: grid; grid-template-columns: 22px 1fr 26px; align-items: center; gap: 9px;
+          margin-bottom: 5px; font-size: .8rem; font-variant-numeric: tabular-nums; }
+  .drow .lab { color: var(--dim); text-align: right; }
+  .drow .cnt { color: var(--dim); text-align: right; }
+  .drow .bar { height: 10px; border-radius: 5px; background: rgba(255,255,255,.055); }
+  .drow .bar i { display: block; height: 100%; border-radius: 5px; min-width: 2px; }
+  .p-arne .drow .bar i { background: var(--arne); }
+  .p-harald .drow .bar i { background: var(--harald); }
+  .drow.fail .bar i { background: var(--tie); }
+  .drow.fail .lab { color: var(--tie); }
+
+  .srow { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center;
+          padding: 7px 1px; border-top: 1px solid var(--line); font-size: .85rem;
+          font-variant-numeric: tabular-nums; }
+  .srow .rec { color: var(--dim); font-size: .8rem; }
+  .srow .sav { color: var(--dim); font-size: .8rem; }
+
   .footer { text-align: center; color: var(--dim); font-size: .78rem; margin-top: 10px; }
   .loading, .err { text-align: center; color: var(--dim); padding: 40px 0; }
 </style>
@@ -99,6 +140,7 @@
   <div id="root"><div class="loading">Loading…</div></div>
   <div class="footer" id="foot">Daily Wordle head-to-head · X = didn't solve (counts as 7)</div>
 </div>
+<div class="modal-bg" id="modal" style="display:none"></div>
 
 <script>
 const val = x => x === "X" ? 7 : x;
@@ -110,13 +152,21 @@ const I18N = {
         tie: n => n === 1 ? "1 tie" : n + " ties", spread: "spread", avg: "avg",
         leadWins: n => `${n} leads on wins`, leadSpread: n => `${n} leads on spread`,
         square: "All square",
-        footer: "Daily Wordle head-to-head · X = didn't solve (counts as 7)" },
+        footer: "Daily Wordle head-to-head · X = didn't solve (counts as 7)",
+        allTime: "All-time", played: "Played", won: "Won", tied: "Tied", lost: "Lost",
+        avgLbl: "Avg", solvedLbl: "Solved", titles: "Titles", bestRun: "Best run",
+        curRun: n => n ? `On a run of ${n} straight win${n > 1 ? "s" : ""}` : "No winning run going",
+        distTitle: "Guess distribution", bySeason: "By season · W–T–L", failLbl: "X" },
   no: { play: "Spill ↗", recap: "Sesongoppsummering", latest: "siste ↩",
         nospeaker: "Ingen utroper var ansatt ennå!", tieBadge: "UAVGJORT",
         tie: n => `${n} uavgjort`, spread: "differanse", avg: "snitt",
         leadWins: n => `${n} leder på seire`, leadSpread: n => `${n} leder på differanse`,
         square: "Helt likt",
-        footer: "Daglig Wordle-duell · X = ikke løst (teller som 7)" }
+        footer: "Daglig Wordle-duell · X = ikke løst (teller som 7)",
+        allTime: "Alle sesonger", played: "Spilt", won: "Seire", tied: "Uavgjort", lost: "Tap",
+        avgLbl: "Snitt", solvedLbl: "Løst", titles: "Titler", bestRun: "Beste rekke",
+        curRun: n => n ? `Inne i en rekke på ${n} strake seier${n > 1 ? "e" : ""}` : "Ingen seiersrekke på gang",
+        distTitle: "Fordeling av forsøk", bySeason: "Per sesong · S–U–T", failLbl: "X" }
 };
 let LANG = localStorage.getItem("lang") || "en";
 if (!I18N[LANG]) LANG = "en";
@@ -186,9 +236,9 @@ function seasonHTML(season, si) {
       ${resume}
       <p class="season-title">${esc(season.title)}</p>
       <div class="score">
-        <div class="col arne"><span class="name">Arne</span><span class="num">${s.aw}</span></div>
+        <div class="col arne" data-p="a"><span class="name">Arne</span><span class="num">${s.aw}</span></div>
         <span class="dash">–</span>
-        <div class="col harald"><span class="name">Harald</span><span class="num">${s.hw}</span></div>
+        <div class="col harald" data-p="h"><span class="name">Harald</span><span class="num">${s.hw}</span></div>
       </div>
       <div class="subline">${tieTxt} · ${T().spread} ${sp} · ${T().avg} ${s.aAvg.toFixed(1)} / ${s.hAvg.toFixed(1)}</div>
       <div class="lead">${esc(lead)}</div>
@@ -207,6 +257,105 @@ function selectShout(si, gi) {
   if (row) row.classList.add("sel");
 }
 
+/* ---- player career stats (all seasons) ---- */
+
+function champOf(season) {           // "a" | "h" | null — only for finished seasons
+  if (!season.resume) return null;
+  const s = statsFor(season.games);
+  if (s.aw !== s.hw) return s.aw > s.hw ? "a" : "h";
+  if (s.spread !== 0) return s.spread > 0 ? "a" : "h";
+  return null;
+}
+
+function playerStats(p) {
+  const o = p === "a" ? "h" : "a";
+  let played = 0, w = 0, t = 0, l = 0, tot = 0, fails = 0, best = 0, run = 0, titles = 0;
+  const dist = {}, seasons = [];
+  for (const S of SEASONS) {
+    const champ = champOf(S);
+    if (champ === p) titles++;
+    let sw = 0, st = 0, sl = 0, stot = 0;
+    for (const g of S.games) {
+      const me = val(g[p]), you = val(g[o]);
+      played++; tot += me; stot += me;
+      const k = g[p] === "X" ? "X" : g[p];
+      dist[k] = (dist[k] || 0) + 1;
+      if (k === "X") fails++;
+      if (me < you) { w++; sw++; run++; if (run > best) best = run; }
+      else if (me > you) { l++; sl++; run = 0; }
+      else { t++; st++; run = 0; }
+    }
+    if (S.games.length)
+      seasons.push({ title: S.title, w: sw, t: st, l: sl,
+                     avg: stot / S.games.length, champ: champ === p });
+  }
+  const n = played || 1;
+  return { played, w, t, l, avg: tot / n, solved: (played - fails) / n,
+           titles, best, run, dist, seasons };
+}
+
+function playerModalHTML(p) {
+  const st = playerStats(p);
+  const name = p === "a" ? "Arne" : "Harald";
+  const kpi = (v, k) => `<div class="kpi"><div class="v">${v}</div><div class="k">${k}</div></div>`;
+  const keys = [];
+  for (let i = 1; i <= 6; i++) if (i >= 2 || st.dist[i]) keys.push(i);
+  keys.push("X");
+  const max = Math.max(1, ...keys.map(k => st.dist[k] || 0));
+  const bars = keys.map(k => {
+    const c = st.dist[k] || 0;
+    return `<div class="drow${k === "X" ? " fail" : ""}">
+              <span class="lab">${k === "X" ? T().failLbl : k}</span>
+              <span class="bar"><i style="width:${c ? Math.round(c / max * 100) : 0}%"></i></span>
+              <span class="cnt">${c}</span>
+            </div>`;
+  }).join("");
+  const rows = st.seasons.slice().reverse().map(s => `
+    <div class="srow">
+      <span>${s.champ ? "🏆 " : ""}${esc(s.title)}</span>
+      <span class="rec">${s.w}–${s.t}–${s.l}</span>
+      <span class="sav">${T().avgLbl} ${s.avg.toFixed(2)}</span>
+    </div>`).join("");
+  return `
+    <div class="modal p-${p === "a" ? "arne" : "harald"}" data-modal="1">
+      <div class="modal-head">
+        <span><h2>${name}</h2><span class="sub">${T().allTime}</span></span>
+        <span class="x" data-close="1">✕</span>
+      </div>
+      <div class="kpis">
+        ${kpi(st.played, T().played)}${kpi(st.w, T().won)}${kpi(st.t, T().tied)}${kpi(st.l, T().lost)}
+        ${kpi(st.avg.toFixed(2), T().avgLbl)}${kpi(Math.round(st.solved * 100) + "%", T().solvedLbl)}
+        ${kpi(st.titles, T().titles)}${kpi(st.best, T().bestRun)}
+      </div>
+      <p class="runline">${T().curRun(st.run)}</p>
+      <p class="msec">${T().distTitle}</p>
+      <div class="dist">${bars}</div>
+      <p class="msec">${T().bySeason}</p>
+      <div>${rows}</div>
+    </div>`;
+}
+
+let OPEN_PLAYER = null;
+
+function openPlayer(p) {
+  OPEN_PLAYER = p;
+  const bg = document.getElementById("modal");
+  bg.innerHTML = playerModalHTML(p);
+  bg.style.display = "flex";
+}
+
+function closePlayer() {
+  OPEN_PLAYER = null;
+  const bg = document.getElementById("modal");
+  bg.style.display = "none";
+  bg.innerHTML = "";
+}
+
+document.getElementById("modal").addEventListener("click", e => {
+  if (e.target.closest("[data-close]") || !e.target.closest("[data-modal]")) closePlayer();
+});
+document.addEventListener("keydown", e => { if (e.key === "Escape" && OPEN_PLAYER) closePlayer(); });
+
 let SEASONS = [];
 
 function render() {
@@ -216,6 +365,7 @@ function render() {
   const order = SEASONS.map((s, i) => i).reverse(); // newest first
   document.getElementById("root").innerHTML =
     order.map(i => seasonHTML(SEASONS[i], i)).join("");
+  if (OPEN_PLAYER) openPlayer(OPEN_PLAYER);
 }
 
 document.getElementById("langsw").addEventListener("click", e => {
@@ -233,6 +383,8 @@ document.getElementById("root").addEventListener("click", e => {
     selectShout(si, latestShoutIdx(SEASONS[si].games));
     return;
   }
+  const col = e.target.closest(".score .col");
+  if (col) { openPlayer(col.dataset.p); return; }
   const row = e.target.closest(".game");
   if (row) selectShout(+row.dataset.si, +row.dataset.gi);
 });
