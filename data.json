@@ -222,7 +222,10 @@
     {
       "month": "2026-08",
       "title": "August 2026",
-      "resume": "",
+      "resume": {
+        "en": "Harald takes August, 10 wins to 8, and with it his second title of the year. The month's real story is how evenly matched they were: 13 of the 31 games ended level, and the decisive move was a four-wins-in-five-days run from Aug 24 that settled the crown with three days to spare. Harald finished with the better average, 4.00 attempts to Arne's 4.16, while Arne had the last word with wins on the final two days.",
+        "no": "Harald tar august, 10 seire mot 8, og med det sin andre tittel i år. Den egentlige historien er hvor jevne de var: 13 av 31 kamper endte uavgjort, og det avgjørende var fire seire på fem dager fra 24. august, som sikret kronen med tre dager igjen. Harald endte med best snitt, 4,00 forsøk mot Arnes 4,16, mens Arne fikk det siste ordet med seier de to siste dagene."
+      },
       "games": [
         { "date": "Aug 1", "word": "BODDE", "a": 4, "h": 5,
           "shout": {
@@ -373,6 +376,11 @@
           "shout": {
             "en": "Arne puts Harald's march on ice — FRYST in 3 to 4, his first win since Aug 22 and a welcome thaw in a frozen August. ❄️",
             "no": "Arne setter Haralds marsj på frys — FRYST på 3 mot 4, første seier siden 22. august og etterlengtet mildvær i en iskald måned. ❄️"
+          } },
+        { "date": "Aug 31", "word": "SIKLE", "a": 3, "h": 5,
+          "shout": {
+            "en": "Arne signs off August in style — SIKLE in 3 while champion Harald needs 5, leaving the new title-holder drooling on the last day of the month. 🤤",
+            "no": "Arne avslutter august med stil — SIKLE på 3 mens mester Harald må ha 5, og lar den ferske tittelvinneren stå igjen og sikle på månedens siste dag. 🤤"
           } }
       ]
     }
