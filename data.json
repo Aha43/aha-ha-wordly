@@ -383,6 +383,18 @@
             "no": "Arne avslutter august med stil — SIKLE på 3 mens mester Harald må ha 5, og lar den ferske tittelvinneren stå igjen og sikle på månedens siste dag. 🤤"
           } }
       ]
+    },
+    {
+      "month": "2026-09",
+      "title": "September 2026",
+      "resume": "",
+      "games": [
+        { "date": "Sep 1", "word": "VRIDD", "a": 3, "h": 5,
+          "shout": {
+            "en": "Arne opens September with a twist — VRIDD in 3 to Harald's 5, a third straight win to start the new season green. 🌀",
+            "no": "Arne åpner september med en vri — VRIDD på 3 mot Haralds 5, tredje strake seier og ny sesong i grønt. 🌀"
+          } }
+      ]
     }
   ]
 }
