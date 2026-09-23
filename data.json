@@ -503,6 +503,11 @@
           "shout": {
             "en": "The NYHET of the day: Harald goes back-to-back, 5 to Arne's last-gasp 6, and reaches double figures first at 10\u20138. \ud83d\udcf0",
             "no": "Dagens nyhet: Harald tar sin andre strake, 5 mot Arnes 6 p\u00e5 overtid, og er f\u00f8rst til tosifret, 10\u20138. \ud83d\udcf0"
+          } },
+        { "date": "Sep 24", "word": "SLIKT", "a": 4, "h": 3,
+          "shout": {
+            "en": "SLIKT happens: Harald makes it three in a row, 3 to Arne's 4, and stretches the lead to 11\u20138. \ud83d\ude2c",
+            "no": "Slikt skjer: Harald tar sin tredje strake, 3 mot Arnes 4, og drar ifra til 11\u20138. \ud83d\ude2c"
           } }
       ]
     }
