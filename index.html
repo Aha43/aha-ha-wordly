@@ -50,8 +50,16 @@
   .arne .num { color: var(--arne); }
   .harald .num { color: var(--harald); }
 
+  .score .crown { font-size: 1.15rem; line-height: 1; margin-bottom: 2px; animation: bob 2.4s ease-in-out infinite; }
+  .arne .crown { filter: drop-shadow(0 0 6px rgba(106,170,100,.55)); }
+  .harald .crown { filter: drop-shadow(0 0 6px rgba(201,180,88,.55)); }
+  @keyframes bob { 0%, 100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(-3px) rotate(4deg); } }
+  @media (prefers-reduced-motion: reduce) { .score .crown { animation: none; } }
+
   .subline { text-align: center; color: var(--dim); font-size: .9rem; margin: 8px 0 4px; }
   .lead { text-align: center; font-size: .95rem; margin: 2px 0 12px; font-weight: 600; }
+  .lead.champ.c-arne { color: var(--arne); }
+  .lead.champ.c-harald { color: var(--harald); }
 
   .shout { background: var(--card2); border: 1px solid var(--line); border-radius: 12px;
            padding: 10px 14px; margin: 0 0 14px; font-size: .9rem; color: var(--txt); }
@@ -152,6 +160,8 @@ const I18N = {
         tie: n => n === 1 ? "1 tie" : n + " ties", spread: "spread", avg: "avg",
         leadWins: n => `${n} leads on wins`, leadSpread: n => `${n} leads on spread`,
         square: "All square",
+        clinched: (n, k) => `${n} has clinched the season — ${k} game${k > 1 ? "s" : ""} still to play`,
+        champ: n => `${n} takes the season`,
         footer: "Daily Wordle head-to-head · X = didn't solve (counts as 7)",
         allTime: "All-time", played: "Played", won: "Won", tied: "Tied", lost: "Lost",
         avgLbl: "Avg", solvedLbl: "Solved", titles: "Titles", bestRun: "Best run",
@@ -162,6 +172,8 @@ const I18N = {
         tie: n => `${n} uavgjort`, spread: "differanse", avg: "snitt",
         leadWins: n => `${n} leder på seire`, leadSpread: n => `${n} leder på differanse`,
         square: "Helt likt",
+        clinched: (n, k) => `${n} har sikret sesongen — ${k} kamp${k > 1 ? "er" : ""} igjen \u00e5 spille`,
+        champ: n => `${n} tar sesongen`,
         footer: "Daglig Wordle-duell · X = ikke løst (teller som 7)",
         allTime: "Alle sesonger", played: "Spilt", won: "Seire", tied: "Uavgjort", lost: "Tap",
         avgLbl: "Snitt", solvedLbl: "Løst", titles: "Titler", bestRun: "Beste rekke",
@@ -193,6 +205,29 @@ function leadLine(s) {
   return T().square;
 }
 
+const daysInMonth = m => {
+  const [y, mo] = String(m || "").split("-").map(Number);
+  return y && mo ? new Date(y, mo, 0).getDate() : 0;
+};
+
+/* Champion of a season, once mathematically settled \u2014 possibly before the last game.
+   Mid-season only wins can be locked up: spread can still swing \u00b16 per game. */
+function crownInfo(season) {
+  const s = statsFor(season.games);
+  if (!s.n) return null;
+  const total = daysInMonth(season.month);
+  const left = total ? total - s.n : 0;
+  const over = total ? left <= 0 : !!season.resume;
+  if (!over) {
+    if (s.aw > s.hw + left) return { who: "a", left };
+    if (s.hw > s.aw + left) return { who: "h", left };
+    return null;
+  }
+  if (s.aw !== s.hw) return { who: s.aw > s.hw ? "a" : "h", left: 0 };
+  if (s.spread !== 0) return { who: s.spread > 0 ? "a" : "h", left: 0 };
+  return null;
+}
+
 function winnerBadge(g) {
   const a = val(g.a), h = val(g.h);
   if (a < h) return '<span class="badge b-arne">ARNE</span>';
@@ -215,7 +250,11 @@ function shoutHTML(season, gi) {
 
 function seasonHTML(season, si) {
   const s = statsFor(season.games);
-  const lead = leadLine(s);
+  const crown = crownInfo(season);
+  const cname = crown ? (crown.who === "a" ? "Arne" : "Harald") : "";
+  const lead = crown ? (crown.left > 0 ? T().clinched(cname, crown.left) : T().champ(cname)) : leadLine(s);
+  const leadCls = crown ? ` champ c-${crown.who === "a" ? "arne" : "harald"}` : "";
+  const cr = w => crown && crown.who === w ? '<span class="crown">\ud83d\udc51</span>' : "";
   const tieTxt = T().tie(s.ties);
   const sp = (s.spread > 0 ? "+" : "") + s.spread;
   const shoutIdx = latestShoutIdx(season.games);
@@ -236,12 +275,12 @@ function seasonHTML(season, si) {
       ${resume}
       <p class="season-title">${esc(season.title)}</p>
       <div class="score">
-        <div class="col arne" data-p="a"><span class="name">Arne</span><span class="num">${s.aw}</span></div>
+        <div class="col arne" data-p="a">${cr("a")}<span class="name">Arne</span><span class="num">${s.aw}</span></div>
         <span class="dash">–</span>
-        <div class="col harald" data-p="h"><span class="name">Harald</span><span class="num">${s.hw}</span></div>
+        <div class="col harald" data-p="h">${cr("h")}<span class="name">Harald</span><span class="num">${s.hw}</span></div>
       </div>
       <div class="subline">${tieTxt} · ${T().spread} ${sp} · ${T().avg} ${s.aAvg.toFixed(1)} / ${s.hAvg.toFixed(1)}</div>
-      <div class="lead">${esc(lead)}</div>
+      <div class="lead${leadCls}">${esc(lead)}</div>
       ${shoutIdx >= 0 ? `<div class="shout" data-shoutbox="${si}">${shoutHTML(season, shoutIdx)}</div>` : ""}
       <div class="games">${rows}</div>
     </section>`;
