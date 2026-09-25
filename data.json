@@ -508,6 +508,11 @@
           "shout": {
             "en": "SLIKT happens: Harald makes it three in a row, 3 to Arne's 4, and stretches the lead to 11\u20138. \ud83d\ude2c",
             "no": "Slikt skjer: Harald tar sin tredje strake, 3 mot Arnes 4, og drar ifra til 11\u20138. \ud83d\ude2c"
+          } },
+        { "date": "Sep 25", "word": "INGEN", "a": 4, "h": 3,
+          "shout": {
+            "en": "INGEN is the right word \u2014 nobody is stopping Harald, who takes a fourth straight with a 3 to Arne's 4 and moves 12\u20138 clear. \ud83d\ude24",
+            "no": "Ingen stopper Harald n\u00e5 \u2014 fjerde strake, 3 mot Arnes 4, og luka er 12\u20138. \ud83d\ude24"
           } }
       ]
     }
