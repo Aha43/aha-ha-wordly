@@ -172,7 +172,17 @@ When the first score of a new month is logged:
 | [June 2026](scores/2026-06.md) | 1 | 0 | 1 | +2 (Arne) | ongoing |
 ```
 
-Champion column: `ongoing` during the month, then winner's name (or `Tie`) when the month ends.
+Champion column, in order:
+
+- `ongoing` while the season is still up for grabs
+- `Name (clinched)` once the season is mathematically decided but games remain —
+  i.e. `leader wins > other wins + games left` (games left = days in the month
+  minus games logged). Only a **wins** lead can clinch early; spread can swing
+  ±6 in a single game, so never call it on spread before the month is over.
+- winner's name (or `Tie`) when the month ends
+
+The public page applies the same rule — it shows a 👑 over the champion from the
+moment they clinch — so keep this column in step with it.
 
 ## README Latest section format
 

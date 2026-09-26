@@ -15,7 +15,7 @@ X (failed) counts as 7. Spread = Harald − Arne attempts; positive means Arne u
 
 | Season | Arne wins | Harald wins | Ties | Season spread | Champion |
 |--------|:---------:|:-----------:|:----:|:-------------:|----------|
-| [September 2026](scores/2026-09.md) | 8 | 13 | 5 | −6 (Harald) | ongoing |
+| [September 2026](scores/2026-09.md) | 8 | 13 | 5 | −6 (Harald) | Harald (clinched) |
 | [August 2026](scores/2026-08.md) | 8 | 10 | 13 | −5 (Harald) | Harald |
 | [July 2026](scores/2026-07.md) | 13 | 10 | 8 | +8 (Arne) | Arne |
 | [June 2026](scores/2026-06.md) | 9 | 11 | 10 | −7 (Harald) | Harald |
