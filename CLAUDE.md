@@ -23,6 +23,11 @@ The public page lives at https://aha43.github.io/aha-ha-wordly/ and renders
 entirely from `data.json` (stats are computed in the browser). `index.html` is
 static — never hand-edit scores into it.
 
+The page also themes itself from the current date: a seasonal background wash
+plus special days (Halloween, Christmas, New Year, Easter, 17. mai, St. Hans),
+and a permanent marker on any game played on one of those days. Nothing to
+maintain — append `?d=YYYY-MM-DD` to the URL to preview another day's theme.
+
 ## Logging a score
 
 When Arne says something like *"June 3 — Arne 4, Harald 3"*:

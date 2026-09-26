@@ -134,17 +134,43 @@
 
   .footer { text-align: center; color: var(--dim); font-size: .78rem; margin-top: 10px; }
   .loading, .err { text-align: center; color: var(--dim); padding: 40px 0; }
+
+  /* ---- seasonal theme: a soft wash behind everything, driven by today's date ---- */
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background:
+      radial-gradient(95vw 62vh at 50% -12%, var(--t1, transparent), transparent 70%),
+      radial-gradient(75vw 55vh at 100% 108%, var(--t2, transparent), transparent 70%);
+  }
+  [data-theme="autumn"]    { --t1: rgba(193,102,38,.26);  --t2: rgba(138,58,20,.20); }
+  [data-theme="winter"]    { --t1: rgba(96,150,210,.22);  --t2: rgba(150,190,230,.13); }
+  [data-theme="spring"]    { --t1: rgba(96,180,110,.20);  --t2: rgba(180,200,90,.13); }
+  [data-theme="summer"]    { --t1: rgba(232,182,70,.20);  --t2: rgba(110,190,150,.13); }
+  [data-theme="halloween"] { --t1: rgba(255,118,20,.26);  --t2: rgba(112,40,152,.26); }
+  [data-theme="christmas"] { --t1: rgba(202,50,50,.22);   --t2: rgba(40,142,80,.20); }
+  [data-theme="newyear"]   { --t1: rgba(240,200,80,.24);  --t2: rgba(70,90,200,.20); }
+  [data-theme="easter"]    { --t1: rgba(240,210,90,.22);  --t2: rgba(170,140,220,.18); }
+  [data-theme="may17"]     { --t1: rgba(200,40,60,.22);   --t2: rgba(40,70,160,.20); }
+  [data-theme="sthans"]    { --t1: rgba(255,140,40,.26);  --t2: rgba(255,80,40,.16); }
+
+  .greet { text-align: center; font-size: .88rem; color: var(--dim); margin: -6px 0 16px; letter-spacing: .3px; }
+  .greet:empty { display: none; }
+  .greet .gmark { margin-right: 7px; }
+  .season-title { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+  .season-title .theme-mark { font-size: 1rem; letter-spacing: normal; }
+  .game .daymark { margin-left: 5px; font-size: .78rem; }
 </style>
 </head>
 <body>
 <div class="wrap">
   <div class="topbar">
-    <h1>🟩 Arne vs Harald</h1>
+    <h1><span id="hmark">🟩</span> Arne vs Harald</h1>
     <span class="topright">
       <span id="langsw"><span class="flag" data-lang="no">🇳🇴</span> <span class="flag" data-lang="en">🇬🇧</span></span>
       <a id="playlink" href="https://gjett.net/" target="_blank" rel="noopener">Play ↗</a>
     </span>
   </div>
+  <div class="greet" id="greet"></div>
   <div id="root"><div class="loading">Loading…</div></div>
   <div class="footer" id="foot">Daily Wordle head-to-head · X = didn't solve (counts as 7)</div>
 </div>
@@ -166,7 +192,10 @@ const I18N = {
         allTime: "All-time", played: "Played", won: "Won", tied: "Tied", lost: "Lost",
         avgLbl: "Avg", solvedLbl: "Solved", titles: "Titles", bestRun: "Best run",
         curRun: n => n ? `On a run of ${n} straight win${n > 1 ? "s" : ""}` : "No winning run going",
-        distTitle: "Guess distribution", bySeason: "By season · W–T–L", failLbl: "X" },
+        distTitle: "Guess distribution", bySeason: "By season · W–T–L", failLbl: "X",
+        greet: { halloween: "Boo! Happy Halloween", christmas: "Merry Christmas",
+                 newyear: "Happy New Year", easter: "Happy Easter",
+                 may17: "Happy Constitution Day", sthans: "Happy Midsummer" } },
   no: { play: "Spill ↗", recap: "Sesongoppsummering", latest: "siste ↩",
         nospeaker: "Ingen utroper var ansatt ennå!", tieBadge: "UAVGJORT",
         tie: n => `${n} uavgjort`, spread: "differanse", avg: "snitt",
@@ -178,7 +207,10 @@ const I18N = {
         allTime: "Alle sesonger", played: "Spilt", won: "Seire", tied: "Uavgjort", lost: "Tap",
         avgLbl: "Snitt", solvedLbl: "Løst", titles: "Titler", bestRun: "Beste rekke",
         curRun: n => n ? `Inne i en rekke på ${n} strake seier${n > 1 ? "e" : ""}` : "Ingen seiersrekke på gang",
-        distTitle: "Fordeling av forsøk", bySeason: "Per sesong · S–U–T", failLbl: "X" }
+        distTitle: "Fordeling av forsøk", bySeason: "Per sesong · S–U–T", failLbl: "X",
+        greet: { halloween: "Bø! God halloween", christmas: "God jul",
+                 newyear: "Godt nytt år", easter: "God påske",
+                 may17: "Gratulerer med dagen", sthans: "God sankthans" } }
 };
 let LANG = localStorage.getItem("lang") || "en";
 if (!I18N[LANG]) LANG = "en";
@@ -203,6 +235,64 @@ function leadLine(s) {
   if (s.spread > 0) return T().leadSpread("Arne");
   if (s.spread < 0) return T().leadSpread("Harald");
   return T().square;
+}
+
+/* ---- seasonal theme ---- */
+
+const MONTHS = { Jan: 1, Feb: 2, Mar: 3, Apr: 4, May: 5, Jun: 6,
+                 Jul: 7, Aug: 8, Sep: 9, Oct: 10, Nov: 11, Dec: 12 };
+
+// Anonymous Gregorian computus \u2014 Easter Sunday for a given year
+function easterSunday(y) {
+  const a = y % 19, b = Math.floor(y / 100), c = y % 100;
+  const d = Math.floor(b / 4), e = b % 4, f = Math.floor((b + 8) / 25);
+  const g = Math.floor((b - f + 1) / 3), h = (19 * a + b - d - g + 15) % 30;
+  const i = Math.floor(c / 4), k = c % 4;
+  const l = (32 + 2 * e + 2 * i - h - k) % 7;
+  const m = Math.floor((a + 11 * h + 22 * l) / 451);
+  return new Date(y, Math.floor((h + l - 7 * m + 114) / 31) - 1, ((h + l - 7 * m + 114) % 31) + 1);
+}
+
+// Special day for a (y, m, d), or null. Easter moves, the rest are fixed.
+function specialDay(y, m, d) {
+  if (m === 10 && d === 31) return "halloween";
+  if (m === 12 && d >= 24 && d <= 26) return "christmas";
+  if ((m === 12 && d === 31) || (m === 1 && d === 1)) return "newyear";
+  if (m === 5 && d === 17) return "may17";
+  if (m === 6 && (d === 23 || d === 24)) return "sthans";
+  const off = Math.round((new Date(y, m - 1, d) - easterSunday(y)) / 864e5);
+  if (off >= -2 && off <= 1) return "easter";   // Good Friday \u2192 Easter Monday
+  return null;
+}
+
+const SEASON_OF_MONTH = [, "winter", "winter", "spring", "spring", "spring", "summer",
+                            "summer", "summer", "autumn", "autumn", "autumn", "winter"];
+const THEME_MARK = { autumn: "\ud83c\udf42", winter: "\u2744\ufe0f", spring: "\ud83c\udf31", summer: "\u2600\ufe0f",
+                     halloween: "\ud83c\udf83", christmas: "\ud83c\udf84", newyear: "\ud83c\udf86",
+                     easter: "\ud83d\udc23", may17: "\ud83c\uddf3\ud83c\uddf4", sthans: "\ud83d\udd25" };
+
+// ?d=YYYY-MM-DD previews another day's theme; otherwise today.
+function themeDate() {
+  const q = new URLSearchParams(location.search).get("d");
+  const p = q && q.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  return p ? new Date(+p[1], +p[2] - 1, +p[3]) : new Date();
+}
+
+function themeOf(dt) {
+  const y = dt.getFullYear(), m = dt.getMonth() + 1, d = dt.getDate();
+  const sp = specialDay(y, m, d);
+  return { key: sp || SEASON_OF_MONTH[m], special: sp, ym: `${y}-${String(m).padStart(2, "0")}` };
+}
+
+// Marker kept forever on a game played on a special day
+function dayMark(season, g) {
+  const [ys, ms] = String(season.month || "").split("-").map(Number);
+  const p = String(g.date).trim().split(/\s+/);
+  const m = MONTHS[p[0]], d = +p[1];
+  if (!m || !d || !ys) return "";
+  const y = ms && m < ms ? ys + 1 : ys;      // guard a season spilling into January
+  const sp = specialDay(y, m, d);
+  return sp ? `<span class="daymark">${THEME_MARK[sp]}</span>` : "";
 }
 
 const daysInMonth = m => {
@@ -261,7 +351,7 @@ function seasonHTML(season, si) {
   const rows = season.games.map((g, gi) => `
     <div class="game${g.shout ? " has-shout" : ""}${gi === shoutIdx ? " sel" : ""}"
          data-si="${si}" data-gi="${gi}">
-      <span class="date">${esc(g.date)}</span>
+      <span class="date">${esc(g.date)}${dayMark(season, g)}</span>
       <span class="word">${esc(g.word)}${g.shout ? '<span class="mark">📣</span>' : ""}</span>
       <span class="att"><b>${esc(g.a)}</b>–<b>${esc(g.h)}</b></span>
       ${winnerBadge(g)}
@@ -273,7 +363,8 @@ function seasonHTML(season, si) {
   return `
     <section class="season">
       ${resume}
-      <p class="season-title">${esc(season.title)}</p>
+      <p class="season-title"><span>${esc(season.title)}</span>${
+        season.month === THEME.ym ? `<span class="theme-mark">${THEME_MARK[THEME.key]}</span>` : ""}</p>
       <div class="score">
         <div class="col arne" data-p="a">${cr("a")}<span class="name">Arne</span><span class="num">${s.aw}</span></div>
         <span class="dash">–</span>
@@ -397,7 +488,13 @@ document.addEventListener("keydown", e => { if (e.key === "Escape" && OPEN_PLAYE
 
 let SEASONS = [];
 
+const THEME = themeOf(themeDate());
+
 function render() {
+  document.documentElement.dataset.theme = THEME.key;
+  document.getElementById("hmark").textContent = THEME_MARK[THEME.key];
+  document.getElementById("greet").innerHTML = THEME.special
+    ? `<span class="gmark">${THEME_MARK[THEME.special]}</span>${esc(T().greet[THEME.special])}` : "";
   document.getElementById("playlink").textContent = T().play;
   document.getElementById("foot").textContent = T().footer;
   document.querySelectorAll(".flag").forEach(f => f.classList.toggle("on", f.dataset.lang === LANG));
