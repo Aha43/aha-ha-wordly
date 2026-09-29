@@ -387,7 +387,10 @@
     {
       "month": "2026-09",
       "title": "September 2026",
-      "resume": "",
+      "resume": {
+        "en": "Harald takes September 16\u20138, his second title in a row and his third in four months. The month was dead level at 8\u20138 with nine days to play, and then it turned completely: Harald won eight of the last nine games and tied the other, clinching the title on Sep 26 with four days to spare. His 3.93 average is the best month either player has posted here, and Arne's three failed solves against Harald's one tell the rest of the story.",
+        "no": "Harald tar september 16\u20138, hans andre tittel p\u00e5 rad og tredje p\u00e5 fire m\u00e5neder. Med ni dager igjen sto det helt likt, 8\u20138, og s\u00e5 snudde alt: Harald vant \u00e5tte av de siste ni kampene og spilte uavgjort i den ene, og tittelen var i boks allerede 26. september, fire dager f\u00f8r slutt. Snittet hans p\u00e5 3,93 er det beste noen av dem har levert p\u00e5 en m\u00e5ned, og Arnes tre bomkamper mot Haralds \u00e9n forteller resten."
+      },
       "games": [
         { "date": "Sep 1", "word": "VRIDD", "a": 3, "h": 5,
           "shout": {
@@ -533,6 +536,11 @@
           "shout": {
             "en": "Harald knows exactly where the SKOEN pinches \u2014 another 3 to Arne's 4, a fifteenth win, and his month's average slips under 4.00. \ud83d\udc5f",
             "no": "Harald vet n\u00f8yaktig hvor skoen trykker \u2014 enda en 3 mot Arnes 4, seier nummer femten, og m\u00e5nedssnittet hans glir under 4,00. \ud83d\udc5f"
+          } },
+        { "date": "Sep 30", "word": "MØRKT", "a": 4, "h": 3,
+          "shout": {
+            "en": "M\u00d8RKT is the word \u2014 Harald signs off with one last 3 to Arne's 4, closing the month 16\u20138 with the best average ever recorded here. \ud83c\udf12",
+            "no": "M\u00d8RKT er ordet \u2014 Harald avslutter med en siste 3 mot Arnes 4 og lukker m\u00e5neden 16\u20138 med det beste snittet som er registrert her. \ud83c\udf12"
           } }
       ]
     }
