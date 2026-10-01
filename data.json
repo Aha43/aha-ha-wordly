@@ -543,6 +543,18 @@
             "no": "M\u00d8RKT er ordet \u2014 Harald avslutter med en siste 3 mot Arnes 4 og lukker m\u00e5neden 16\u20138 med det beste snittet som er registrert her. \ud83c\udf12"
           } }
       ]
+    },
+    {
+      "month": "2026-10",
+      "title": "October 2026",
+      "resume": "",
+      "games": [
+        { "date": "Oct 1", "word": "POLSKE", "a": 4, "h": 3,
+          "shout": {
+            "en": "POLSKE opens October and nothing has changed \u2014 Harald dances it home in 3 to Arne's 4, picking up in the new month exactly where he left the old one. \ud83d\udc83",
+            "no": "POLSKE \u00e5pner oktober, og ingenting er endret \u2014 Harald danser den inn p\u00e5 3 mot Arnes 4 og fortsetter i ny m\u00e5ned der han slapp i den gamle. \ud83d\udc83"
+          } }
+      ]
     }
   ]
 }
