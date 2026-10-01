@@ -7,7 +7,7 @@ X (failed) counts as 7. Spread = Harald − Arne attempts; positive means Arne u
 
 ## Latest
 
-**Oct 1 · POLSKE** — Harald 3, Arne 4 → Harald wins
+**Oct 1 · POLSK** — Harald 3, Arne 4 → Harald wins
 
 **October 2026:** Arne 0 – Harald 1 (0 ties) · Spread −1 · Harald ahead on wins
 

@@ -162,6 +162,20 @@ string `""`.
 
 A failed attempt (no solve) counts as **7** for all calculations.
 
+## Word length — always 5
+
+The answer is **always exactly 5 letters**. That is a constant of the game, not
+a pattern to infer from the data.
+
+If Arne reports a word of any other length it is a typo — almost always an
+inflected form (`mørk` → `MØRKT`, `polske` → `POLSK`). Do **not** log it, and do
+not guess the intended form: say the word isn't 5 letters and ask for the exact
+answer before writing anything to any file.
+
+A handful of early entries break this rule (`UKLART`, `STIGEN`, `ORAL`, `?`).
+They are known mistakes, deliberately left in place — never cite them as
+precedent for accepting a non-5-letter word.
+
 ## Starting a new month
 
 When the first score of a new month is logged:
