@@ -157,6 +157,8 @@ string `""`.
   - Zero → Tie
 - **Season spread:** sum of all per-game spreads
 - Used for tiebreaking when wins are equal
+- A zero season spread is written plainly as `0` — no `(Arne)`, `(Harald)` or
+  `(level)` qualifier — in both the README table and the monthly stats block
 
 ## X (failed game)
 
