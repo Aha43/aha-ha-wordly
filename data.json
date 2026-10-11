@@ -598,6 +598,11 @@
           "shout": {
             "en": "RUNEN gets deciphered in 4 by both \u2014 Arne stops the bleeding with a tie, the fifth of the month, and the gap holds at three. \ud83e\udea8",
             "no": "RUNEN blir tydet p\u00e5 4 av begge \u2014 Arne stanser bl\u00f8dningen med uavgjort, m\u00e5nedens femte, og avstanden holder seg p\u00e5 tre. \ud83e\udea8"
+          } },
+        { "date": "Oct 11", "word": "APRIL", "a": 4, "h": 3,
+          "shout": {
+            "en": "APRIL is Arne's birthday month, but Harald crashes the party in 3 to Arne's 4 \u2014 no home advantage in Wordle, apparently. \ud83c\udf82",
+            "no": "APRIL er Arnes bursdagsm\u00e5ned, men Harald tar seg inn p\u00e5 festen p\u00e5 3 mot Arnes 4 \u2014 ingen hjemmebanefordel i Wordle, tydeligvis. \ud83c\udf82"
           } }
       ]
     }
