@@ -603,6 +603,11 @@
           "shout": {
             "en": "APRIL is Arne's birthday month, but Harald crashes the party in 3 to Arne's 4 \u2014 no home advantage in Wordle, apparently. \ud83c\udf82",
             "no": "APRIL er Arnes bursdagsm\u00e5ned, men Harald tar seg inn p\u00e5 festen p\u00e5 3 mot Arnes 4 \u2014 ingen hjemmebanefordel i Wordle, tydeligvis. \ud83c\udf82"
+          } },
+        { "date": "Oct 12", "word": "GREIE", "a": 3, "h": 3,
+          "shout": {
+            "en": "GREIE in 3 for both \u2014 a perfectly greie result, no drama, and the sixth tie of the month keeps Harald's cushion at four. \ud83e\udd37",
+            "no": "GREIE p\u00e5 3 for begge \u2014 et helt greit resultat, null drama, og m\u00e5nedens sjette uavgjort holder Haralds forsprang p\u00e5 fire. \ud83e\udd37"
           } }
       ]
     }
