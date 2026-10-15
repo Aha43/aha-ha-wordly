@@ -623,6 +623,11 @@
           "shout": {
             "en": "KRONE in 3 apiece \u2014 nobody gets the crown today, but tie number eight keeps Harald's three-win cushion polished and ready for coronation. \ud83d\udc51",
             "no": "KRONE p\u00e5 3 hver \u2014 ingen f\u00e5r kronen i dag, men uavgjort nummer \u00e5tte holder Haralds tre seire i forsprang blankpusset og klar for kroning. \ud83d\udc51"
+          } },
+        { "date": "Oct 16", "word": "SPILL", "a": 4, "h": 4,
+          "shout": {
+            "en": "SPILL in 4 each \u2014 game on, game tied: nine stalemates now, and Harald's 5\u20132 lead just keeps playing itself out. \ud83c\udfb2",
+            "no": "SPILL p\u00e5 4 hver \u2014 spillet g\u00e5r, spillet st\u00e5r likt: ni uavgjorte n\u00e5, og Haralds 5\u20132-ledelse spiller seg bare videre. \ud83c\udfb2"
           } }
       ]
     }
