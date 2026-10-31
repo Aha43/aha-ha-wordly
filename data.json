@@ -547,7 +547,10 @@
     {
       "month": "2026-10",
       "title": "October 2026",
-      "resume": "",
+      "resume": {
+        "en": "Harald takes October 11–5, his third title in a row and fourth in five months. It was tight for three weeks — 5–4 to Harald with 11 ties on Oct 20 — before he won six of the next eight games, five of them in exactly 3 guesses, and clinched on Oct 26 with five days to spare. The 15 ties are a record for a single month, Harald's 3.87 average beats his own September best, and Arne's failed solve on RØRER was the only X of the month.",
+        "no": "Harald tar oktober 11–5, hans tredje tittel på rad og fjerde på fem måneder. Det var jevnt i tre uker — 5–4 til Harald med 11 uavgjort 20. oktober — før han vant seks av de neste åtte kampene, fem av dem på nøyaktig 3 forsøk, og sikret tittelen 26. oktober med fem dager igjen. De 15 uavgjorte er rekord for én måned, Haralds snitt på 3,87 slår hans egen septemberrekord, og Arnes bom på RØRER var månedens eneste X."
+      },
       "games": [
         { "date": "Oct 1", "word": "POLSK", "a": 4, "h": 3,
           "shout": {
@@ -698,6 +701,11 @@
           "shout": {
             "en": "A FRISK breath of air for Arne — 4 to Harald's 5 ends a nine-game winless run, his first win since Oct 20, and nudges the spread back to −9. 🌬️",
             "no": "Et FRISKT pust for Arne — 4 mot Haralds 5 bryter ni kamper uten seier, den første siden 20. oktober, og dytter spreaden tilbake til −9. 🌬️"
+          } },
+        { "date": "Oct 31", "word": "SATTE", "a": 3, "h": 3,
+          "shout": {
+            "en": "SATTE puts the seal on October — 3 apiece on Halloween for a record 15th tie, and Harald lifts the crown 11–5. 🎃",
+            "no": "SATTE setter punktum for oktober — 3 for begge på halloween gir uavgjort nummer 15, ny rekord, og Harald løfter kronen 11–5. 🎃"
           } }
       ]
     }
