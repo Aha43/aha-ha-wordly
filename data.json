@@ -708,6 +708,18 @@
             "no": "SATTE setter punktum for oktober — 3 for begge på halloween gir uavgjort nummer 15, ny rekord, og Harald løfter kronen 11–5. 🎃"
           } }
       ]
+    },
+    {
+      "month": "2026-11",
+      "title": "November 2026",
+      "resume": "",
+      "games": [
+        { "date": "Nov 1", "word": "FORDI", "a": 4, "h": 3,
+          "shout": {
+            "en": "Why does Harald open November with a win? FORDI — 3 to Arne's 4, and the champ starts the defence right where October left off. 🏆",
+            "no": "Hvorfor åpner Harald november med seier? FORDI — 3 mot Arnes 4, og mesteren starter tittelforsvaret akkurat der oktober slapp. 🏆"
+          } }
+      ]
     }
   ]
 }
