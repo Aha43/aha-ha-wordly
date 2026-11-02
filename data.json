@@ -718,6 +718,11 @@
           "shout": {
             "en": "Why does Harald open November with a win? FORDI — 3 to Arne's 4, and the champ starts the defence right where October left off. 🏆",
             "no": "Hvorfor åpner Harald november med seier? FORDI — 3 mot Arnes 4, og mesteren starter tittelforsvaret akkurat der oktober slapp. 🏆"
+          } },
+        { "date": "Nov 2", "word": "KULDE", "a": 3, "h": 3,
+          "shout": {
+            "en": "Cold war on the board — both crack KULDE in 3, and the November chill settles into a frosty stalemate. 🥶",
+            "no": "Kald krig på brettet — begge knekker KULDE på 3, og novemberkulda fryser fast i et iskaldt dødt løp. 🥶"
           } }
       ]
     }
