@@ -798,6 +798,11 @@
           "shout": {
             "en": "A winner is coming SNART, just not today — a sharp 3 apiece makes it tie number seven, wins stay locked at 5–5 and Arne's +5 spread holds. ⏳",
             "no": "SNART får vi en vinner, men ikke i dag — kjappe 3 forsøk hver gir uavgjort nummer sju, seirene står fortsatt 5–5, og Arnes +5 i differanse består. ⏳"
+          } },
+        { "date": "Nov 18", "word": "EGGEN", "a": 4, "h": 5,
+          "shout": {
+            "en": "Arne has the edge, literally — EGGEN in 4 to Harald's 5 is a razor-thin win that puts him back in front on wins, 6–5, with the spread sharpened to +6. 🔪",
+            "no": "Avgjort på knivseggen — Arne tar EGGEN på 4 mot Haralds 5, og er tilbake i ledelsen på seire, 6–5, med differansen kvesset til +6. 🔪"
           } }
       ]
     }
